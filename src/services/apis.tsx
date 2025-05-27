@@ -1,7 +1,14 @@
-export const CategoryEndpoints = {
-  CATEGORY_API: `http://192.168.1.13:5000/api/v1/category?page=1&limit=10`,
-};
+ const BASE_URL = import.meta.env.VITE_BASE_URL;
 
+ console.log('BASE_URL:', BASE_URL);
+console.log('All env vars:', import.meta.env);
+
+export const CategoryEndpoints = {
+  CATEGORY_API: `${BASE_URL}/category?page=1&limit=10`,
+};
+export const ProductEndpoints = {
+  ALL_PRODUCT_API: `${BASE_URL}/product/?page=1&limit=10&category_id=682d9debc1ac203470ab58b2`
+}
 export const AuthEndpoints = {
   LOGIN_API: `/auth/login`,
   FETCH_PROFILE_API: `/auth/profile`,
