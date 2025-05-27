@@ -15,9 +15,6 @@ const Category = () => {
 
   const getCategoryList = async () => {
     try {
-      // const response = await axios.get(
-      //   "http://192.168.1.13:5000/api/v1/category?page=1&limit=10"
-      // );
       const response = await dispatch(getCategory()).unwrap();
       console.log("🔥 API response:", response);
      setData(response?.data?.data?.category || []);
