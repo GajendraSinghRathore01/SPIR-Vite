@@ -12,5 +12,6 @@ import closeSidebarIcon from "./closeSidebar.svg"
 import home from "./home.svg"
 import whiteLogo from "./whiteLogo.svg";
 import location from "./location.svg";
+import customer_support from "./customer_support.svg"
 
-export { call, facebook, insta, linkedin, message, twitter, youtube, logo, lock, sidebarIcon, closeSidebarIcon, home, whiteLogo, location };
+export { call, facebook, insta, linkedin, message, twitter, youtube, logo, lock, sidebarIcon, closeSidebarIcon, home, whiteLogo, location, customer_support };
