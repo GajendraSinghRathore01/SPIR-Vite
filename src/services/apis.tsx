@@ -4,11 +4,19 @@
 console.log('All env vars:', import.meta.env);
 
 export const CategoryEndpoints = {
-  CATEGORY_API: `${BASE_URL}/category?page=1&limit=10`,
+  CATEGORY_API: `${BASE_URL}/category`,
 };
 export const ProductEndpoints = {
-  ALL_PRODUCT_API: `${BASE_URL}/product/?page=1&limit=10&category_id=682d9debc1ac203470ab58b2`
-}
+  // Helper function to build product URL dynamically
+  getProductsUrl: (categoryId?: string, page: number = 1, limit: number = 10) => {
+    let url = `${BASE_URL}/product/?page=${page}&limit=${limit}`;
+    if (categoryId) {
+      url += `&category_id=${categoryId}`;
+    }
+    return url;
+  }
+};
+
 export const AuthEndpoints = {
   LOGIN_API: `/auth/login`,
   FETCH_PROFILE_API: `/auth/profile`,

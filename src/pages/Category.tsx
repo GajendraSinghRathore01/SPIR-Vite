@@ -27,8 +27,8 @@ const Category = () => {
     getCategoryList();
   }, []);
 
-  const handleCardClick = () => {
-    navigate("/products");
+const handleCardClick = (categoryId: string) => {
+    navigate(`/products?category_id=${categoryId}`);
   };
 
   const filteredData = data.filter((item) => {
@@ -52,13 +52,13 @@ const Category = () => {
               placeholder="Search category"
             />
             <div className=" mt-12 flex flex-wrap items-center gap-6  ">
-              {filteredData.map((item: any, index: any) => (
+              {filteredData.map((item: any) => (
                 <CommonCard
-                  key={index}
+                  key={item?._id}
                   imageUrl={item.category_logo}
                   title={item.category_name}
                   description={item.category_description}
-                  onClick={handleCardClick}
+                  onClick={() => handleCardClick(item._id)}
                 />
               ))}
             </div>

@@ -1,32 +1,44 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import SearchBar from "../common/Searchbar";
 import PageBreadcrumb from "../common/PageBreadCrumb";
 import CommonCard from "../common/CommonCard";
 import { useAppDispatch } from "../redux/hooks";
-import { getProduct } from "../redux/slice/geetProductSlice";
+import { getProduct } from "../redux/slice/getProductSlice";
 
 const Products = () => {
   const [data, setData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [categoryName, setCategoryName] = useState("Products");
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
+
+   const categoryId = searchParams.get('category_id');
 
   const getProductList = async () => {
     try {
-      const response = await dispatch(getProduct()).unwrap();
-      setData(response?.data?.product);
+      const response = await dispatch(getProduct(categoryId)).unwrap();
+      setData(response?.data?.product || []);
+      if (response?.data?.product?.length > 0) {
+        setCategoryName(response.data.product[0]?.category?.category_name || "Products");
+      }
     } catch (error) {
       console.log("error in api", error);
     }
   };
 
   useEffect(() => {
-    getProductList();
-  }, []);
+    if (categoryId) {
+      getProductList();
+    } else {
+      // Handle case when no category ID is provided
+      console.log("No category ID provided");
+    }
+  }, [categoryId]);
 
   const handleCardClick = (item: any) => {
-    navigate("/productdetail", { state: { product: item } });
+    navigate("/productsdetail", { state: { product: item } });
   };
 
   const filteredData = Array.isArray(data)
