@@ -15,7 +15,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
           <li>
             <Link
               className="inline-flex items-center gap-1.5 text-sm text-gray-500 "
-              to="/"
+              to="/home"
             >
              <img src={home} /> Home 
               <svg

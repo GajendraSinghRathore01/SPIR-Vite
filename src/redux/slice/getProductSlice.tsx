@@ -15,14 +15,11 @@ const initialState: ProductState = {
 
 // Async thunk to get products by category ID
 export const getProduct = createAsyncThunk(
-  "getProductList", 
+  "getProductList",
   async (categoryId: string | null) => {
     try {
       // Build the URL with category ID if provided
-      const url = categoryId 
-        ? `${BASE_URL}/product/?page=1&limit=10&category_id=${categoryId}`
-        : `${BASE_URL}/product/?page=1&limit=10`;
-        
+      const url = categoryId ? `${BASE_URL}/product/?category_id=${categoryId}` : `${BASE_URL}/product`;
       const response = await apiConnector({
         method: "GET",
         url: url,

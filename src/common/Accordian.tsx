@@ -12,15 +12,16 @@ const Accordian: React.FC<AccordianProps> = ({
   const [isOpen, setIsOpen] = React.useState(false);
 
   const onToggle = () => {
-    setIsOpen((prev) => !prev); // toggle the isOpen state
-  }
+    setIsOpen(!isOpen); // my approach 
+    // setIsOpen((prev) => !prev); // toggle the isOpen state
+  } 
   return (
     <div
       className="border-[1px] border-[#E4E7E9] rounded-lg p-4 flex flex-col w-full select-none cursor-pointer text-lg"
       onClick={onToggle} // trigger the onToggle function when clicked
     >
       <div className="flex justify-between items-center">
-        <h5 className="font-semibold">{question}</h5>
+        <h5 className="font-semibold text-justify">{question}</h5>
         <div>
           <svg
             width="24"
@@ -29,7 +30,7 @@ const Accordian: React.FC<AccordianProps> = ({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            {isOpen ? (
+            {isOpen ? ( 
               ""
             ) : (
               <path
@@ -49,9 +50,10 @@ const Accordian: React.FC<AccordianProps> = ({
             />
           </svg>
         </div>
+        {/* <div className="bg-red-500">x</div> */}
       </div>
       <div className={`${isOpen ? "inline-block" : "hidden"} w-[95%] pt-4`}>
-        <p>{answer}</p>
+        <p className="text-justify">{answer}</p>
       </div>
     </div>
   );

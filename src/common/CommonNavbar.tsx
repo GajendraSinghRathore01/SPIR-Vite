@@ -1,16 +1,16 @@
-import { useNavigate, useLocation } from "react-router";
-
 type Tab = {
   label: string;
-  path: string;
+  onClick?: () => void;
+  isActive?: boolean; 
 };
 
 type Props = {
   tabs: Tab[];
-  onClick?: (tab: Tab) => void;
+  onClick?: () => void;
   containerClassName?: string;
   listClassName?: string;
   itemClassName?: string;
+ 
 };
 
 const CommonNavbar = ({
@@ -18,36 +18,33 @@ const CommonNavbar = ({
   onClick,
   containerClassName = "",
   listClassName = "",
-  itemClassName = ""
+  itemClassName = "",
+
+  
 }: Props) => {
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const handleClick = (tab: Tab) => {
-    onClick?.(tab);
-    navigate(tab.path);
+    tab.onClick?.();
+    onClick?.();
   };
 
   return (
     <div className={`bg-transparent p-2 ${containerClassName}`}>
       <ul className={`text-xl ${listClassName}`}>
-        {tabs.map((data, index) => {
-          const isActive = location.pathname === data.path;
-          return (
-            <li
-              key={index}
-              className={`
-                hover:cursor-pointer
-                hover:text-[#fa8a3f]
-                ${isActive ? "text-[#fa8a3f]" : ""}
-                ${itemClassName}
-              `}
-              onClick={() => handleClick(data)}
-            >
-              {data.label}
-            </li>
-          );
-        })}
+        {tabs.map((data, index) => (
+          <li
+            key={index}
+            className={`
+       hover:cursor-pointer
+    hover:text-[#fa8a3f]
+    ${data.isActive ? "text-[#fa8a3f] bg-[#fcf2ec] " : ""}
+    ${itemClassName}
+  `}
+            onClick={() => handleClick(data)}
+          >
+            {data.label}
+          </li>
+        ))}
       </ul>
     </div>
   );

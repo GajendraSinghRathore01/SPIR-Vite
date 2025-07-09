@@ -1,9 +1,9 @@
-import React from 'react'
-
 const LandingPage = () => {
   return (
-    <div>
-      <h1>landing page</h1>
+    <div className=" h-screen flex justify-center items-center bg-gray-100 ">
+      <div className="p-2  w-full text-center">
+       <h1 className="text-xl italic ">Home page</h1>
+      </div>
     </div>
   )
 }
