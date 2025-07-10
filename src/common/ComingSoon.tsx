@@ -1,4 +1,4 @@
-const CommingSoon = () => {
+const ComingSoon = () => {
   return (
     <div className=" h-screen flex justify-center items-center bg-gray-100 ">
       <div className="p-2  w-full text-center">
@@ -8,4 +8,4 @@ const CommingSoon = () => {
   )
 }
 
-export default CommingSoon
+export default ComingSoon

@@ -2,7 +2,7 @@ import React from 'react';
 
 interface CommonButtonProps {
   type?: 'button' | 'submit' | 'reset';
-  label: string;
+  label: string | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   styleButton?: string;
   styleLabel?: string;

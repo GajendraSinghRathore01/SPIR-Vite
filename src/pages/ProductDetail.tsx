@@ -81,21 +81,22 @@ const ProductDetail = () => {
     videoDescription();
   }, []);
   return (
-    <div>
+    <div className="bg-gray-50">
       {productInfo.map((item) => (
         <PageBreadcrumb key={item?._id} pageTitle={item?.product_name} />
       ))}
-      <div className="w-[90%] mx-auto mt-4">
+      <div className="w-[90%]  mx-auto mt-4 flex gap-6">
         {/* popular tags */}
-        <div className="space-y-3">
-          <h6 className="font-semibold text-xl select-none">POPULAR TAG</h6>
-          {/* <CommonNavbar
-            tabs={popularTabs}
-            containerClassName="px-0"
-            listClassName="flex space-x-2 "
-            itemClassName="border-[1px] border-[#E4E7E9] hover:border-[#FA8232] px-2 py-1 hover:rounded-xl hover:text-[#FA8232] hover:bg-[#FFF3EB] cursor-pointer text-sm"
-          /> */}
-          <div className="flex space-x-6">
+        <div className="w-[75%]">
+          <div className="space-y-3">
+            <h6 className="font-semibold text-xl select-none">POPULAR TAG</h6>
+            <CommonNavbar
+              tabs={popularTabs}
+              containerClassName="px-0"
+              listClassName="flex space-x-2 "
+              itemClassName="border-[1px] border-[#E4E7E9] hover:border-[#FA8232] px-2 py-1 hover:rounded-xl hover:text-[#FA8232] hover:bg-[#FFF3EB] cursor-pointer text-sm"
+            />
+            {/* <div className="flex space-x-6">
             {popularTabs.map((tab) => (
               <CommonButton
                 type="button"
@@ -105,15 +106,16 @@ const ProductDetail = () => {
                 label={tab.label}
               />
             ))}
+          </div> */}
           </div>
-        </div>
-        {/* images and videos section */}
-        {productInfo.map((item, index) => (
-          <div className="flex gap-5 mt-7" key={`productInfo-${index}`}>
-            <div className="w-[70%] rounded-lg overflow-hidden">
+          {productInfo.map((item, index) => (
+            <div
+              className=" mt-7 rounded-lg overflow-hidden"
+              key={`productInfo-${index}`}
+            >
               <iframe
                 width="100%"
-                height="100%"
+                height="660px"
                 src={item?.product_video}
                 title="YouTube video player"
                 frameBorder="0"
@@ -122,7 +124,31 @@ const ProductDetail = () => {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="w-[30%] flex flex-col gap-5">
+          ))}
+
+          <div className="mt-7 space-y-16">
+            {/* Industry Overview */}
+            {productInfo.map((item) => (
+              <div className="space-y-5" key={item?._id}>
+                <h3 className="font-bold text-3xl">{item?.product_name}</h3>
+                <p className="text-lg text-justify">
+                  {item?.product_description}
+                </p>
+              </div>
+            ))}
+
+            {/* Frequently asked questions */}
+            <Faq Faqs={faq} />
+
+            {/* Related Industries */}
+            <RelatedIndustries data={industryData} />
+          </div>
+        </div>
+
+        {/* right part of the page */}
+        <div className="w-[25%]  mt-28 space-y-12 ">
+          {productInfo.map((item, index) => (
+            <div  key={`productInfo-${index}`} className="flex flex-col gap-5">
               <div className="bg-[#D49A28] h-52 rounded-lg p-2">
                 {item?.product_image1}
               </div>
@@ -133,38 +159,18 @@ const ProductDetail = () => {
                 {item?.product_image3}
               </div>
             </div>
-          </div>
-        ))}
+          ))}
 
-        {/* other information */}
-        <div className="flex gap-5 mt-7">
-          {/* left part of page */}
-          <div className="w-[70%] space-y-16">
-            {/* Industry Overview */}
-            {productInfo.map((item) => (
-              <div className="space-y-5" key={item?._id}>
-                <h3 className="font-bold text-3xl">{item?.product_name}</h3>
-                <p className="text-lg">{item?.product_description}</p>
-              </div>
-            ))}
-
-            {/* Frequently asked questions */}
-            <Faq Faqs={faq} />
-
-            {/* Related Industries */}
-            <RelatedIndustries data={industryData} />
-          </div>
-
-          {/* right part of page */}
           <CustomerSupport
             onSubscribe={() => console.log("Subscribe Successfully")}
             onEnquiry={() => console.log("What is your Enquiry")}
           />
         </div>
       </div>
-
-      {/* Other Sectors */}
-      <OtherSector data={otherSector} />
+      <div className="bg-white">
+        {/* Other Sectors */}
+        <OtherSector data={otherSector} />
+      </div>
     </div>
   );
 };

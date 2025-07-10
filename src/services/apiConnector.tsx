@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 // export const axiosInstance = axios.create({});
 export const axiosInstance = axios.create({
@@ -23,7 +23,6 @@ axiosInstance.interceptors.response.use(
       localStorage.removeItem("userToken");
       // window.location.href = "/";
     }
-
     toast.error(error?.response?.data?.message || "Something went wrong");
     return Promise.reject(error?.response?.data?.message || error.message);
   }

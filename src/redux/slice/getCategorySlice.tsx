@@ -14,15 +14,11 @@ const initialState: CategoryState = {
 
 // Async thunk to add a getCategory
 export const getCategory = createAsyncThunk("getCategoryList", async () => {
-  try {
     const response = await apiConnector({
       method: "GET",
-      url: CategoryEndpoints.CATEGORY_API,
+      url: CategoryEndpoints.CATEGORY_API ,
     });
     return response.data;
-  } catch (err: any) {
-    return err?.response?.data?.message || "Something went wrong";
-  }
 });
 
 const getCategorySlice = createSlice({

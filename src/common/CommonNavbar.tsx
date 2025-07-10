@@ -31,7 +31,7 @@ const CommonNavbar = ({
   return (
     <div className={`bg-transparent p-2 ${containerClassName}`}>
       <ul className={`text-xl ${listClassName}`}>
-        {tabs.map((data, index) => (
+        {tabs?.map((data, index) => (
           <li
             key={index}
             className={`
@@ -42,7 +42,7 @@ const CommonNavbar = ({
   `}
             onClick={() => handleClick(data)}
           >
-            {data.label}
+            {data?.label}
           </li>
         ))}
       </ul>

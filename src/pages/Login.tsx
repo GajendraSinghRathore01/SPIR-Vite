@@ -23,7 +23,9 @@ const Login = () => {
   const navigate = useNavigate();
   const onSubmit = async (data: any) => {
     localStorage.setItem("login", data);
+    sessionStorage.setItem("justLoggedIn", "true");
     navigate("/home");
+   
   };
   return (
     <div className="h-screen md:overflow-y-hidden">

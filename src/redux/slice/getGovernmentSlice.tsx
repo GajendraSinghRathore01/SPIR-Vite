@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiConnector } from "../../services/apiConnector";
-
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { apiConnector, BASE_URL } from "../../services/apiConnector";
 
 interface GovernmentSchemeState { // Changed from ProductState
   loading: boolean;
@@ -20,8 +18,7 @@ export const getGovernment = createAsyncThunk(
   "getGovernmentScheme",
   async (productId: string | null) => {
     try {
-      // Build the URL with product ID if provided
-      const url = productId ? `${BASE_URL}/govt/scheme?product_id=${productId}` : `${BASE_URL}/govt/scheme`;
+      // const url = productId ? `${BASE_URL}/govt/scheme?product_id=${productId}` : `${BASE_URL}/govt/scheme`;
       const response = await apiConnector({
         method: "GET",
         url: url,

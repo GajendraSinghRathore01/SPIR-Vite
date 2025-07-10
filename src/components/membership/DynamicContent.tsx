@@ -3,7 +3,7 @@ import CommonNavbar from "../../common/CommonNavbar";
 import Incubation from "./membershipTabs/Incubation";
 
 const DynamicContent = () => {
-  const [activeTab, setAcitveTab] = useState("BUSINESS INCUBATION");
+  const [activeTab, setActiveTab] = useState("BUSINESS INCUBATION");
   const membershipTabs = [
     { label: "BUSINESS INCUBATION" },
     { label: "STARTUP" },
@@ -12,7 +12,7 @@ const DynamicContent = () => {
   ].map((tab) => ({
     ...tab,
     isActive: tab.label === activeTab,
-    onClick: () => setAcitveTab(tab.label),
+    onClick: () => setActiveTab(tab?.label),
   }));
   const renderContent = () => {
     switch (activeTab) {

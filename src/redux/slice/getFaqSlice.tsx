@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiConnector } from "../../services/apiConnector";
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { apiConnector, BASE_URL } from "../../services/apiConnector";
+
 
 interface Faq {
   question: string;
@@ -23,7 +23,6 @@ const initialState: FaqState = {
 export const getFaq = createAsyncThunk(
   "getFaq",
   async (productId: string | null) => {
-    try {
       const url = productId
         ? `${BASE_URL}/faq?product_id=${productId}`
         : `${BASE_URL}/product`;
@@ -32,9 +31,6 @@ export const getFaq = createAsyncThunk(
         url: url,
       });
       return response.data;
-    } catch (err: any) {
-      return err?.response?.data?.message || "Something went wrong";
-    }
   }
 );
 

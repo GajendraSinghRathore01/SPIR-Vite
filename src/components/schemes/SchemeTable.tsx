@@ -1,5 +1,5 @@
 import { pdf, video } from "../../assets";
-
+import { BASE_URL } from "../../services/apiConnector";
 type Scheme = {
   _id: string;
   scheme_name: string;
@@ -12,11 +12,9 @@ interface SchemeTableProps {
   tableData: Scheme[];
 }
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
-
 const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
   const makeUrl = (path: string) =>
-    path.startsWith("http") ? path : `${BASE_URL}/${path}`;
+    path?.startsWith("http") ? path : `${BASE_URL}/${path}`;
 
   return (
     <div className="w-full">
@@ -39,15 +37,15 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
         </thead>
 
         <tbody>
-          {tableData.map((item) => (
-            <tr key={item._id}>
+          {tableData?.map((item) => (
+            <tr key={item?._id}>
               <td className="px-4 py-2 border border-gray-300">
-                {item.scheme_name}
+                {item?.scheme_name}
               </td>
               <td className="px-4 py-2 border border-gray-300">
-                {item.scheme_highlights?.length ? (
+                {item?.scheme_highlights?.length ? (
                   <div className="flex justify-evenly gap-2">
-                    {item.scheme_highlights.map(
+                    {item?.scheme_highlights?.map(
                       (item, index) => (
                         <a
                           key={index}
@@ -70,9 +68,9 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
                 )}
               </td>
               <td className="px-4 py-2 border border-gray-300">
-                {item.scheme_documents?.length ? (
+                {item?.scheme_documents?.length ? (
                   <div className="flex justify-evenly">
-                    {item.scheme_documents.map((item, index) => (
+                    {item?.scheme_documents?.map((item, index) => (
                       <a
                         key={index}
                         href={makeUrl(item)}
@@ -89,9 +87,9 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
                 )}
               </td>
               <td className="px-4 py-2 border border-gray-300">
-                {item.scheme_video?.length ? (
+                {item?.scheme_video?.length ? (
                   <div className="flex justify-evenly">
-                    {item.scheme_video.map((item, index) => (
+                    {item?.scheme_video?.map((item, index) => (
                       <a
                         key={index}
                         href={item}

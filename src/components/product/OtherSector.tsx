@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Category from "./../../pages/Category";
+import Category from "../../pages/IndustrialSloution";
 
 type Category = {
   _id: string;
@@ -15,24 +15,24 @@ const OtherSector = ({ data, selectedCategoryId }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="my-16 select-none">
+    <div className="my-16 p-5 select-none">
       <div className="mx-auto w-[90%] flex flex-col justify-center items-center">
         <h3 className="font-semibold text-xl">Other Sectors</h3>
-        <div className="w-[90%] mt-5">
-          <ul className="list-disc space-y-4 grid grid-cols-3">
-            {data.map((category) => {
+        <div className="w-full mt-5">
+          <ul className="list-disc w-full grid grid-cols-3 gap-y-4 gap-x-6">
+            {data?.map((category) => {
               if (category?._id !== selectedCategoryId) {
                 return (
-                  <li key={category._id}>
+                  <li key={category?._id}>
                     <p
-                      className="hover:text-[#f46442] inline-block cursor-pointer"
+                      className="hover:text-[#f46442] inline-block cursor-pointer "
                       onClick={() =>
                         navigate("/products", {
-                          state: { categoryId: category._id },
+                          state: { categoryId: category?._id },
                         })
                       }
                     >
-                      {category.category_name.toUpperCase()}
+                      {category?.category_name?.toUpperCase()}
                     </p>
                   </li>
                 );

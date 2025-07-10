@@ -15,7 +15,7 @@ const Faq: React.FC<FaqProps> = ({ Faqs }) => {
     <div className="space-y-5">
       <h3 className="font-bold text-3xl">Frequently Asked Questions</h3>
       {Faqs?.length ? (
-        Faqs.map((item, index) => (
+        Faqs?.map((item, index) => (
           <Accordian key={`faq-${index}`} question={item?.question} answer={item?.answer} />
         ))
       ) : (

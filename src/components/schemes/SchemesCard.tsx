@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { BASE_URL } from "../../services/apiConnector";
 
 interface SchemeCard {
   title: string;

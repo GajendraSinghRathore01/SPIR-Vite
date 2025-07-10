@@ -36,7 +36,7 @@ const GovernmentScheme: React.FC<GovernmentSchemeProps> = memo(({ governmentData
         <div className="w-full min-h-[580px] ">
           {/* Map through government scheme data */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-2 border-dashed rounded-lg  bg-gray-50 border-gray-300 p-5 ">
-            {governmentData.map((item) => (
+            {governmentData?.map((item) => (
               <CommonCard 
                 key={item?._id}
                 imageUrl={item?.scheme_logo} 

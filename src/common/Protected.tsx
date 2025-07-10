@@ -6,7 +6,7 @@ const Protected: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("login"); 
+    const isLoggedIn = localStorage?.getItem("login"); 
     if (!isLoggedIn) {
       navigate("/");
     }

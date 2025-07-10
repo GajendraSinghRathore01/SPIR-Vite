@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import {customer_support} from "../../assets"; // adjust path as needed
+import CommonButton from "../../common/CommonButton";
           
 type CustomerSupportProps = {
   onSubscribe?: () => void;
@@ -12,18 +13,8 @@ const CustomerSupport: FC<CustomerSupportProps> = ({ onSubscribe, onEnquiry }) =
     <div className="space-y-5 w-[420px]">
       {/* Subscribe and Enquiry Section */}
       <div className="space-y-5 border-[1px] border-[#E4E7E9] p-5 rounded-lg">
-        <button
-          className="text-xl cursor-pointer bg-[#FA8232] text-white rounded-lg py-2 w-full"
-          onClick={onSubscribe}
-        >
-          Subscribe Now
-        </button>
-        <button
-          className="text-xl cursor-pointer border-2 font-semibold rounded-lg py-2 w-full"
-          onClick={onEnquiry}
-        >
-          Enquiry Now
-        </button>
+        <CommonButton label="Subscribe Now" styleButton="text-xl cursor-pointer bg-[#FA8232] text-white rounded-lg py-2 w-full" onClick={onSubscribe}/>
+        <CommonButton label="Enquiry Now" styleButton="text-xl cursor-pointer border-2 font-semibold rounded-lg py-2 w-full" onClick={onEnquiry}/>
       </div>
 
       {/* Customer Support Section */}

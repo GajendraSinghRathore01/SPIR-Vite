@@ -25,6 +25,7 @@ import {
   Service,
 } from "../components/productDetailTabs";
 import { getGovernment } from "../redux/slice/getGovernmentSlice";
+import { useToast } from "../common/ToastNotification";
 
 // Memoized components
 const MemoizedFaq = memo(Faq);
@@ -93,6 +94,7 @@ const AVAILABLE_TABS = [
 type TabType = (typeof AVAILABLE_TABS)[number];
 
 const ProductsDetail = () => {
+  const {showToast} = useToast();
   const location = useLocation();
   const { productId = '', categoryId='' } = location?.state ?? {};
 
@@ -156,6 +158,7 @@ const ProductsDetail = () => {
       setCurrentTabContent(productData);
     } catch (error) {
       console.log("Error loading static content:", error);
+      // showToast("Something went wrong", "error");
     } finally {
       setLoading(false);
     }
@@ -235,7 +238,7 @@ const ProductsDetail = () => {
   return (
     <div>
       {/* Breadcrumb */}
-      {productInfo.map((item) => (
+      {productInfo?.map((item) => (
         <MemoizedPageBreadcrumb
           key={item?._id}
           pageTitle={item?.product_name}

@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { BASE_URL } from "./apiConnector";
 
 //  console.log('BASE_URL:', BASE_URL);
 // console.log('All env vars:', import.meta.env);

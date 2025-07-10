@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { apiConnector } from "../../services/apiConnector";
+import { apiConnector, BASE_URL} from "../../services/apiConnector";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 interface ProductState {
   loading: boolean;
@@ -17,7 +16,6 @@ const initialState: ProductState = {
 export const getProduct = createAsyncThunk(
   "getProductList",
   async (categoryId: string | null) => {
-    try {
       // Build the URL with category ID if provided
       const url = categoryId ? `${BASE_URL}/product/?category_id=${categoryId}` : `${BASE_URL}/product`;
       const response = await apiConnector({
@@ -25,9 +23,6 @@ export const getProduct = createAsyncThunk(
         url: url,
       });
       return response.data;
-    } catch (err: any) {
-      return err?.response?.data?.message || "Something went wrong";
-    }
   }
 );
 

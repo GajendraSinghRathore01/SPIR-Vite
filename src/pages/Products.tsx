@@ -7,33 +7,43 @@ import { useAppDispatch } from "../redux/hooks";
 import { getProduct } from "../redux/slice/getProductSlice";
 import { getCategory } from "../redux/slice/getCategorySlice";
 import { useDebounce } from "../common/Debounce";
-
+import LoadingContent from "../common/LoadingContent";
+// import { useToast } from "../common/ToastNotification";
 
 const Products = () => {
   const [productList, setProductList] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const debounceSearch = useDebounce(searchTerm,500);
+  const debounceSearch = useDebounce(searchTerm, 500);
   const [categoryList, setCategoryList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const location = useLocation();
-  const { categoryId='' } = location?.state ?? {};
+  // const {showToast} = useToast();
+  const { categoryId = "" } = location?.state ?? {};
 
   const getProductList = async () => {
+    setLoading(true);
     try {
       const response = await dispatch(getProduct(categoryId)).unwrap();
       setProductList(response?.data?.product || []);
     } catch (error) {
       console.log("error in api", error);
+    } finally {
+      setLoading(false);
     }
   };
   const getCategories = async () => {
+    setLoading(true);
     try {
       const response = await dispatch(getCategory()).unwrap();
       setCategoryList(response?.data?.category);
     } catch (error) {
       console.log("error in get api", error);
+      // showToast("Something went wrong", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,16 +60,16 @@ const Products = () => {
   }, [categoryId]);
 
   const handleCardClick = (item: any) => {
-    navigate(`/industrydocumentry`, {
+    navigate(`/industryDocumentary`, {
       state: { productId: item?._id, categoryId: item?.category?._id },
     });
   };
 
-  const filteredData = Array.isArray(productList)
-    ? productList.filter((item) =>
+  const filteredData = Array?.isArray(productList)
+    ? productList?.filter((item) =>
         (item?.category?.category_name || "")
-          .toLowerCase()
-          .includes(debounceSearch.toLowerCase())
+          ?.toLowerCase()
+          ?.includes(debounceSearch.toLowerCase())
       )
     : [];
 
@@ -67,76 +77,81 @@ const Products = () => {
     <div className="py-4">
       <PageBreadcrumb pageTitle="food supplies" />
       <div className="w-[90%] mx-auto mt-8 p-2 select-none">
-        <div className="flex gap-6 ">
-          <div className="w-[18%] h-96 bg-[#fffcfb] p-4 border-2 border-gray-200 mt-11">
-            <h2 className="text-xl mb-4">CATEGORY</h2>
-            <div className="space-y-2">
-              {categoryList.map((item) => {
-                const isActive = item?._id === categoryId;
-                return (
-                  <div
-                    key={item?._id}
-                    className={`flex items-center space-x-2 ${
-                      isActive
-                        ? "text-[#f46442] font-semibold"
-                        : "text-gray-700"
-                    }`}
-                    onClick={() =>
-                      navigate("/products", {
-                        state: { categoryId: item?._id },
-                      })
-                    }
-                  >
-                    <input
-                      type="radio"
-                      name="category"
-                      checked={isActive}
-                      readOnly
-                      className="accent-[#f46442] hover:cursor-pointer"
-                    />
-                    <p>{item?.category_name}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="w-[82%]">
-            <h2 className="text-xl font-bold mb-4 ">
-              Industrial Solutions Your Gateway to 1500+ Business Opportunities!
-            </h2>
-            <SearchBar
-              value={searchTerm}
-              onChange={setSearchTerm}
-              placeholder="Search Product"
-            />
-            <div className="mt-12 flex flex-wrap  items-center gap-6">
-              {filteredData.length > 0 ? (
-                filteredData.map(
-                  (item: any, index: any) => (
-                    console.log("my data", item),
-                    (
-                      <CommonCard
-                        key={item?._id || index} // Use item ID if available, fallback to index
-                        imageUrl={item?.product_logo}
-                        title={item?.product_name}
-                        description={item?.product_description}
-                        label="READ MORE"
-                        onClick={() => handleCardClick(item)}
+        {loading ? (
+          <LoadingContent />
+        ) : (
+          <div className="flex gap-6 ">
+            <div className="w-[18%] h-96 bg-[#fffcfb] p-4 border-2 border-gray-200 mt-11">
+              <h2 className="text-xl mb-4">CATEGORY</h2>
+              <div className="space-y-2">
+                {categoryList?.map((item) => {
+                  const isActive = item?._id === categoryId;
+                  return (
+                    <div
+                      key={item?._id}
+                      className={`flex items-center space-x-2 ${
+                        isActive
+                          ? "text-[#f46442] font-semibold"
+                          : "text-gray-700"
+                      }`}
+                      onClick={() =>
+                        navigate("/products", {
+                          state: { categoryId: item?._id },
+                        })
+                      }
+                    >
+                      <input
+                        type="radio"
+                        name="category"
+                        checked={isActive}
+                        readOnly
+                        className="accent-[#f46442] hover:cursor-pointer"
                       />
+                      <p>{item?.category_name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="w-[82%]">
+              <h2 className="text-xl font-bold mb-4 ">
+                Industrial Solutions Your Gateway to 1500+ Business
+                Opportunities!
+              </h2>
+              <SearchBar
+                value={searchTerm}
+                onChange={setSearchTerm}
+                placeholder="Search Product"
+              />
+              <div className="mt-12 flex flex-wrap  items-center gap-6">
+                {filteredData?.length > 0 ? (
+                  filteredData?.map(
+                    (item: any, index: any) => (
+                      console.log("my data", item),
+                      (
+                        <CommonCard
+                          key={item?._id || index} // Use item ID if available, fallback to index
+                          imageUrl={item?.product_logo}
+                          title={item?.product_name}
+                          description={item?.product_description}
+                          label="READ MORE"
+                          onClick={() => handleCardClick(item)}
+                        />
+                      )
                     )
                   )
-                )
-              ) : (
-                <div className="col-span-4 text-center text-gray-500">
-                  {searchTerm
-                    ? "No products found matching your search."
-                    : "No products available."}
-                </div>
-              )}
+                ) : (
+                  <div className="col-span-4 text-center text-gray-500">
+                    {searchTerm
+                      ? "No products found matching your search."
+                      : "No products available."}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

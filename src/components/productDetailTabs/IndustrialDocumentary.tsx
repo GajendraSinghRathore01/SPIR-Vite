@@ -18,7 +18,7 @@ const IndustrialDocumentary: React.FC<IndustrialDocumentaryProps> = memo(({ prod
 
   return (
     <>
-      {productInfo.map((item, index) => (
+      {productInfo?.map((item, index) => (
         console.log("item", item),
         <div className="flex gap-5 mt-7" key={`industrial-documentary-${index}`}>
           <div className="w-[75%] rounded-lg overflow-hidden">

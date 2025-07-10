@@ -1,8 +1,7 @@
-import { createSlice, createAsyncThunk, isRejected, asyncThunkCreator } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import { apiConnector } from "../../services/apiConnector";
 import { AuthEndpoints } from "../../services/apis";
-import { useNavigate } from "react-router";
 
 interface AuthState {
   token: string | null;
@@ -24,15 +23,15 @@ export const loginUser = createAsyncThunk(
     try {
       const res = await apiConnector({
         method: "POST",
-        url: AuthEndpoints.LOGIN_API,
+        url: AuthEndpoints?.LOGIN_API,
         bodyData: data,        
       });
 
       // ✅ Save token manually
-      localStorage.setItem("userToken", res.data.data.token);
-      console.log(res.data.data.token, "res.data.token");
+      localStorage.setItem("userToken", res?.data?.data?.token);
+      console.log(res?.data?.data?.token, "res.data.token");
 
-      return res.data;
+      return res?.data;
     } catch (err: any) {
       return rejectWithValue(err);
     }

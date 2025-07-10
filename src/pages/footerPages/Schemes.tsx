@@ -4,6 +4,8 @@ import { SchemesCard, SchemeTable } from "../../components/schemes";
 import { useAppDispatch } from "../../redux/hooks";
 import { getSchemes } from "../../redux/slice/getSchemeSlice";
 import { networkError } from "../../assets";
+import { useToast } from "../../common/ToastNotification";
+import LoadingContent from "../../common/LoadingContent";
 
 interface SubScheme {
   _id: string;
@@ -21,6 +23,7 @@ interface Scheme {
   schemes: SubScheme[];
 }
 const Schemes = () => {
+  const {showToast} = useToast();
   const [schemeData, setSchemeData] = useState<Scheme[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<Record<string, boolean>>({});
@@ -33,6 +36,7 @@ const Schemes = () => {
       setSchemeData(response?.data);
     } catch (error) {
       console.log("error in scheme api", error);
+      showToast(error, "error");
     } finally {
       setLoading(false);
     }
@@ -54,19 +58,17 @@ const Schemes = () => {
 
       <div className="w-[90%] mx-auto pt-12 space-y-24">
         {loading ? (
-          <div className="flex justify-center p-5">
-            <p className="text-2xl italic">Loading data from server</p>
-          </div>
+          <LoadingContent/>
         ) : schemeData ? (
           <>
             <div className="flex justify-evenly flex-wrap gap-8">
               {schemeData?.map((item) => (
                 <SchemesCard
-                  key={item._id}
-                  title={item.name}
-                  imageUrl={item.thumbnail}
-                  styleCard={item.background_color}
-                  onClick={() => handleClick(item._id)}
+                  key={item?._id}
+                  title={item?.name}
+                  imageUrl={item?.thumbnail}
+                  styleCard={item?.background_color}
+                  onClick={() => handleClick(item?._id)}
                 />
               ))}
             </div>

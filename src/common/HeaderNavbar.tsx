@@ -1,16 +1,9 @@
 import { useState } from "react";
 import {
   call,
-  facebook,
-  insta,
-  linkedin,
-  twitter,
-  youtube,
-  message,
-  logo,
-  lock,
   sidebarIcon,
   closeSidebarIcon,
+  message,
 } from "../assets";
 import CommonNavbar from "./CommonNavbar";
 import { useLocation, useNavigate } from "react-router";
@@ -31,7 +24,7 @@ const HeaderNavbar = () => {
   {
     label: "About",
     isActive: location.pathname === "/about",
-    onClick: () => navigate("/comingsoon"),
+    onClick: () => navigate("/comingSoon"),
   },
   {
     label: "Schemes",
@@ -41,21 +34,21 @@ const HeaderNavbar = () => {
   {
     label: "Events",
     isActive: location.pathname === "/events",
-    onClick: () => navigate("/comingsoon"),
+    onClick: () => navigate("/comingSoon"),
   },
   {
     label: "Industrial Report",
     isActive: location.pathname === "/reports",
-    onClick: () => navigate("/comingsoon"),
+    onClick: () => navigate("/comingSoon"),
   },
 ];
 
   const navbarTabs = [
   {
     label: "Industrial Solution",
-    isActive: location.pathname === "/category",
+    isActive: location.pathname === "/IndustrialSolution",
     onClick: () => {
-      navigate("/category");
+      navigate("/IndustrialSolution");
       closeSidebar();
     },
   },
@@ -63,7 +56,7 @@ const HeaderNavbar = () => {
     label: "Project Reports",
     isActive: location.pathname === "/project-reports",
     onClick: () => {
-      navigate("/comingsoon");
+      navigate("/comingSoon");
       closeSidebar();
     },
   },
@@ -71,7 +64,7 @@ const HeaderNavbar = () => {
     label: "Services",
     isActive: location.pathname === "/services",
     onClick: () => {
-      navigate("/comingsoon");
+      navigate("/comingSoon");
       closeSidebar();
     },
   },
@@ -79,7 +72,7 @@ const HeaderNavbar = () => {
     label: "Franchise",
     isActive: location.pathname === "/franchise",
     onClick: () => {
-      navigate("/comingsoon");
+      navigate("/comingSoon");
       closeSidebar();
     },
   },
@@ -87,7 +80,7 @@ const HeaderNavbar = () => {
     label: "Startup",
     isActive: location.pathname === "/startup",
     onClick: () => {
-      navigate("/comingsoon");
+      navigate("/comingSoon");
       closeSidebar();
     },
   },
@@ -103,7 +96,7 @@ const HeaderNavbar = () => {
     label: "Join Us",
     isActive: location.pathname === "/join-us",
     onClick: () => {
-      navigate("/comingsoon");
+      navigate("/comingSoon");
       closeSidebar();
     },
   },
@@ -130,20 +123,11 @@ const HeaderNavbar = () => {
               <img src={message} /> <p>support@spir.org.in</p>
             </div>
           </div>
-          <div className="flex space-x-2 items-center">
-            {/* <p className="text-white">Follow us: </p> */}
-            {/* <img src={facebook} />
-            <img src={twitter} />
-            <img src={youtube} />
-            <img src={insta} />
-            <img src={linkedin} /> */}
-          </div>
         </div>
       </div>
 
       <div className="w-[90%] mx-auto flex justify-between items-center p-4 select-none">
-        {/* <img src={logo} /> */}
-        <h1 className="text-5xl font-bold text-blue-400 cursor-pointer" onClick={() => navigate("/home")}>SPIR</h1>
+        <h1 className="text-5xl font-bold text-[#4a83f7] cursor-pointer" onClick={() => navigate("/home")}>SPIR</h1>
         <CommonNavbar
           tabs={HomeTabs}
           listClassName="flex justify-center space-x-6"
@@ -151,7 +135,6 @@ const HeaderNavbar = () => {
         />
         <div className="flex space-x-6 items-center">
           <p className="hover:text-[#fa8a3f] font-bold">My Account</p>
-          {/* <img src={lock} /> */}
           <img
             src={sidebarIcon}
             onClick={toggleSidebar}
