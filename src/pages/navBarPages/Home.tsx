@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useToast } from '../common/ToastNotification';
+import { useToast } from '../../common/ToastNotification';
 
 const Home = () => {
   const {showToast} = useToast();

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import SearchBar from "../common/Searchbar";
-import PageBreadcrumb from "../common/PageBreadCrumb";
-import CommonCard from "../common/CommonCard";
-import { useAppDispatch } from "../redux/hooks";
-import { getProduct } from "../redux/slice/getProductSlice";
-import { getCategory } from "../redux/slice/getCategorySlice";
-import { useDebounce } from "../common/Debounce";
-import LoadingContent from "../common/LoadingContent";
+import SearchBar from "../../../common/Searchbar";
+import PageBreadcrumb from "../../../common/PageBreadCrumb";
+import CommonCard from "../../../common/CommonCard";
+import { useAppDispatch } from "../../../redux/hooks";
+import { getProduct } from "../../../redux/slice/getProductSlice";
+import { getCategory } from "../../../redux/slice/getCategorySlice";
+import { useDebounce } from "../../../common/Debounce";
+import LoadingContent from "../../../common/LoadingContent";
 // import { useToast } from "../common/ToastNotification";
 
 const Products = () => {
@@ -81,7 +81,7 @@ const Products = () => {
           <LoadingContent />
         ) : (
           <div className="flex gap-6 ">
-            <div className="w-[18%] h-96 bg-[#fffcfb] p-4 border-2 border-gray-200 mt-11">
+            <div className="w-[15%] h-96 bg-addsBg p-4 border-2 border-gray-200 mt-11">
               <h2 className="text-xl mb-4">CATEGORY</h2>
               <div className="space-y-2">
                 {categoryList?.map((item) => {
@@ -91,7 +91,7 @@ const Products = () => {
                       key={item?._id}
                       className={`flex items-center space-x-2 ${
                         isActive
-                          ? "text-[#f46442] font-semibold"
+                          ? "text-cardBtn font-semibold"
                           : "text-gray-700"
                       }`}
                       onClick={() =>
@@ -105,7 +105,7 @@ const Products = () => {
                         name="category"
                         checked={isActive}
                         readOnly
-                        className="accent-[#f46442] hover:cursor-pointer"
+                        className="accent-[#f75632] hover:cursor-pointer"
                       />
                       <p>{item?.category_name}</p>
                     </div>
@@ -114,7 +114,7 @@ const Products = () => {
               </div>
             </div>
 
-            <div className="w-[82%]">
+            <div className="w-[85%]">
               <h2 className="text-xl font-bold mb-4 ">
                 Industrial Solutions Your Gateway to 1500+ Business
                 Opportunities!

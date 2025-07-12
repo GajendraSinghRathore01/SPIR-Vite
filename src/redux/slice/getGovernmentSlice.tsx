@@ -17,16 +17,13 @@ const initialState: GovernmentSchemeState = {
 export const getGovernment = createAsyncThunk(
   "getGovernmentScheme",
   async (productId: string | null) => {
-    try {
-      // const url = productId ? `${BASE_URL}/govt/scheme?product_id=${productId}` : `${BASE_URL}/govt/scheme`;
+
+      const url = productId ? `${BASE_URL}/govt/scheme?product_id=${productId}` : `${BASE_URL}/govt/scheme`;
       const response = await apiConnector({
         method: "GET",
         url: url,
       });
       return response.data;
-    } catch (err: any) {
-      return err?.response?.data?.message || "Something went wrong";
-    }
   }
 );
 

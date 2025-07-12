@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 interface ExpertTalkProps {
   productInfo: any[];
-  loading: boolean;
+  loading?: boolean;
 }
 
 const ExpertTalk: React.FC<ExpertTalkProps> = memo(({ productInfo, loading }) => {
@@ -18,8 +18,8 @@ const ExpertTalk: React.FC<ExpertTalkProps> = memo(({ productInfo, loading }) =>
   return (
     <>
       {/* Vacant div for future cards - parallel to CustomerSupport */}
-      <div className="flex gap-5 w-full">
-        <div className="w-full min-h-[580px] bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+      <div className="flex h-[660px] mt-7 w-full  rounded-lg border-2 border-dashed border-gray-300 ">
+        <div className="w-full  bg-gray-50 flex items-center justify-center">
           <div className="text-center text-gray-500">
             <div className="text-6xl mb-4">📋</div>
             <h3 className="text-xl font-semibold mb-2">Expert Talk Cards</h3>

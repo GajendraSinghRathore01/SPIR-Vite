@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Category from "../../pages/IndustrialSloution";
+import Category from "../../pages/sideBarPages/IndustrialSloution";
 
 type Category = {
   _id: string;
@@ -19,7 +19,7 @@ const OtherSector = ({ data, selectedCategoryId }: Props) => {
       <div className="mx-auto w-[90%] flex flex-col justify-center items-center">
         <h3 className="font-semibold text-xl">Other Sectors</h3>
         <div className="w-full mt-5">
-          <ul className="list-disc w-full grid grid-cols-3 gap-y-4 gap-x-6">
+          <ul className="list-disc w-full grid grid-cols-3  gap-x-6">
             {data?.map((category) => {
               if (category?._id !== selectedCategoryId) {
                 return (

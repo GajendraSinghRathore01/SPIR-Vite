@@ -19,11 +19,11 @@ const DynamicContent = () => {
       case "BUSINESS INCUBATION":
         return <Incubation/>;
       case "STARTUP":
-        return <div>this is startup page</div>;
+        return <div className="text-center p-5">this is startup page</div>;
       case "FRANCHISE":
-        return <div>this is franchise page</div>;
+        return <div className="text-center p-5">this is franchise page</div>;
       case "BUSINESS NETWORKING":
-        return <div>this is business networking page</div>;
+        return <div className="text-center p-5">this is business networking page</div>;
       default:
         return <div>tab not found</div>;
     }

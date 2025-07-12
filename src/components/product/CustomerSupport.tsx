@@ -10,7 +10,7 @@ type CustomerSupportProps = {
 const CustomerSupport: FC<CustomerSupportProps> = ({ onSubscribe, onEnquiry }) => {
   return (
 
-    <div className="space-y-5 w-[420px]">
+    <div className="space-y-5 ">
       {/* Subscribe and Enquiry Section */}
       <div className="space-y-5 border-[1px] border-[#E4E7E9] p-5 rounded-lg">
         <CommonButton label="Subscribe Now" styleButton="text-xl cursor-pointer bg-[#FA8232] text-white rounded-lg py-2 w-full" onClick={onSubscribe}/>

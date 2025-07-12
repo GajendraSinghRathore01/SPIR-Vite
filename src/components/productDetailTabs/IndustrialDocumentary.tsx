@@ -1,30 +1,29 @@
 import React, { memo } from 'react';
-import { CustomerSupport } from '../product';
 
 interface IndustrialDocumentaryProps {
   productInfo: any[];
-  loading: boolean;
+  loading?: boolean;
 }
 
-const IndustrialDocumentary: React.FC<IndustrialDocumentaryProps> = memo(({ productInfo, loading }) => {
+const IndustrialDocumentary: React.FC<IndustrialDocumentaryProps> = memo(({ productInfo, loading}) => {
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-7 p-4">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FA8232]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#0a21ec]"></div>
         <span className="ml-2 text-[#FA8232]">Loading Industrial Documentary...</span>
       </div>
     );
   }
 
   return (
-    <>
+    <div className='mt-7 min-h-[660px]'>
       {productInfo?.map((item, index) => (
         console.log("item", item),
-        <div className="flex gap-5 mt-7" key={`industrial-documentary-${index}`}>
-          <div className="w-[75%] rounded-lg overflow-hidden">
+        <div  key={`industrial-documentary-${index}`}>
+          <div className=" rounded-lg overflow-hidden">
             <iframe
               width="100%"
-              height="570"
+              height="660"
               src={item?.product_video || "https://www.youtube.com/embed/dQw4w9WgXcQ"}
               title="Industrial Documentary video player"
               frameBorder="0"
@@ -33,23 +32,12 @@ const IndustrialDocumentary: React.FC<IndustrialDocumentaryProps> = memo(({ prod
               allowFullScreen
             ></iframe>
           </div>
-          <div className="w-[25%] flex flex-col gap-5">
-            <div className="bg-[#D49A28] h-44 rounded-lg p-2 flex items-center justify-center text-white font-semibold">
-              {item?.product_image1 || "Industrial Documentary Image 1"}
-            </div>
-            <div className="bg-[#D49A28] h-44 rounded-lg p-2 flex items-center justify-center text-white font-semibold">
-              {item?.product_image2 || "Industrial Documentary Image 2"}
-            </div>
-            <div className="bg-[#D49A28] h-44 rounded-lg p-2 flex items-center justify-center text-white font-semibold">
-              {item?.product_image3 || "Industrial Documentary Image 3"}
-            </div>
-          </div>
         </div>
       ))}
       
       {/* Industry description section */}
       <div className="flex justify-between gap-5 mt-7">
-        <div className="w-[70%] space-y-16">
+        <div >
           {productInfo.map((item) => (
             <div className="space-y-5" key={item?._id}>
               <h3 className="font-bold text-3xl">{item?.product_name}</h3>
@@ -58,9 +46,8 @@ const IndustrialDocumentary: React.FC<IndustrialDocumentaryProps> = memo(({ prod
           ))}
           
         </div>
-        {/* <CustomerSupport/> */}
       </div>
-    </>
+    </div>
   );
 });
 

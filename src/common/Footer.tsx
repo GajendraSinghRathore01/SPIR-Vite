@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router";
 const Footer = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-[#3e7cfa] text-white py-8 rounded-t-xl ">
+    <div className="bg-theme text-white py-8 rounded-t-xl ">
       <div className="w-[90%] mx-auto">
         <div className="grid grid-cols-4 gap-10">
           <div className="flex flex-col gap-4">

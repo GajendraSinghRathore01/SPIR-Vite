@@ -113,7 +113,7 @@ const HeaderNavbar = () => {
 
   return (
     <>
-      <div className="bg-[#4a83f7] select-none">
+      <div className="bg-theme select-none">
         <div className="w-[90%] mx-auto flex justify-between p-2 items-center">
           <div className="flex space-x-6">
             <div className="flex  space-x-2 text-white">
@@ -127,7 +127,7 @@ const HeaderNavbar = () => {
       </div>
 
       <div className="w-[90%] mx-auto flex justify-between items-center p-4 select-none">
-        <h1 className="text-5xl font-bold text-[#4a83f7] cursor-pointer" onClick={() => navigate("/home")}>SPIR</h1>
+        <h1 className="text-5xl font-bold text-theme cursor-pointer" onClick={() => navigate("/home")}>SPIR</h1>
         <CommonNavbar
           tabs={HomeTabs}
           listClassName="flex justify-center space-x-6"

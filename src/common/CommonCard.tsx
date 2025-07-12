@@ -32,7 +32,7 @@ const CommonCard: React.FC<CommonCardProps> = ({
 
       <h2 className="text-xl ">{title}</h2>
       <p className="text-md line-clamp-2 text-center">{description}</p>
-      <CommonButton label={label} type="button" styleButton="border-2 border-[#ffe7d6] text-[#fa8232] rounded-lg py-1 px-2  hover:cursor-pointer" />
+      <CommonButton label={label} type="button" styleButton="border-2 border-cardBtnBorder text-cardBtn rounded-lg py-1 px-2  hover:cursor-pointer" />
     </div>
   );
 };

@@ -2,15 +2,15 @@
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import MainLayout from "./pages/Layout/MainLayout";
-import Home from "./pages/Home";
-import IndustrialSolution from "./pages/IndustrialSloution";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductsDetail";
+import Home from "./pages/navBarPages/Home";
+import IndustrialSolution from "./pages/sideBarPages/IndustrialSloution";
+import Products from "./pages/sideBarPages/industrialSolution/Products";
+import ProductDetail from "./pages/sideBarPages/industrialSolution/ProductDetail";
 import ComingSoon from "./common/ComingSoon";
-import Schemes from "./pages/footerPages/Schemes";
+import Schemes from "./pages/navBarPages/Schemes";
 import Protected from "./common/Protected";
 import NotFound from "./common/NotFound";
-import Membership from "./pages/Membership";
+import Membership from "./pages/sideBarPages/Membership";
 
 function App() {
   return (

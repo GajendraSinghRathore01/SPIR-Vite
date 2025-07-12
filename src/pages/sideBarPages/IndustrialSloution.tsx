@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import SearchBar from "../common/Searchbar";
-import PageBreadcrumb from "../common/PageBreadCrumb";
-import CommonCard from "../common/CommonCard";
-import { useAppDispatch } from "../redux/hooks";
-import { getCategory } from "../redux/slice/getCategorySlice";
-import { useDebounce } from "../common/Debounce";
-import LoadingContent from "../common/LoadingContent";
+import SearchBar from "../../common/Searchbar";
+import PageBreadcrumb from "../../common/PageBreadCrumb";
+import CommonCard from "../../common/CommonCard";
+import { useAppDispatch } from "../../redux/hooks";
+import { getCategory } from "../../redux/slice/getCategorySlice";
+import { useDebounce } from "../../common/Debounce";
+import LoadingContent from "../../common/LoadingContent";
 // import { useToast } from "../common/ToastNotification";
 
 const IndustrialSolution = () => {
@@ -54,7 +54,7 @@ const IndustrialSolution = () => {
           Industrial Solutions Your Gateway to 1500+ Business Opportunities!
         </h2>
         <div className="flex gap-6">
-          <div className="w-[80%]">
+          <div className="w-[85%]">
             <SearchBar
               value={searchTerm}
               onChange={setSearchTerm}
@@ -85,7 +85,7 @@ const IndustrialSolution = () => {
               )}
             </div>
           </div>
-          <div className="w-[20%] bg-[#FFF3EB] h-screen border-2 border-gray-200 p-4  ">
+          <div className="w-[15%] bg-addsBg border-2 border-gray-200 p-4  ">
             ADDS
           </div>
         </div>

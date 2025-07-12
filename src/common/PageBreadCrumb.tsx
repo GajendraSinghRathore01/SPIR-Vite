@@ -7,7 +7,7 @@ interface BreadcrumbProps {
 
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
   return (
-    <div className="bg-[#f0f5ff]">
+    <div className="bg-tertiary">
     <div className="flex w-[90%] mx-auto py-4 px-2  ">
      
       <nav>
@@ -36,7 +36,7 @@ const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
               </svg>
             </Link>
           </li>
-          <li className="text-sm text-[#f46442]">
+          <li className="text-sm text-cardBtn">
             {pageTitle}
           </li>
         </ol>

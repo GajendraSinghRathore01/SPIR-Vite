@@ -2,7 +2,7 @@ import { memo } from "react";
 
 interface IndustrialResearchProps {
   productInfo: any[];
-  loading: boolean;
+  loading?: boolean;
 }
 
 const IndustrialResearch: React.FC<IndustrialResearchProps> = memo(({ productInfo, loading }) => {
@@ -18,8 +18,8 @@ const IndustrialResearch: React.FC<IndustrialResearchProps> = memo(({ productInf
   return (
     <>
       {/* Vacant div for future cards - parallel to CustomerSupport */}
-      <div className="flex gap-5 ">
-        <div className="w-full min-h-[580px] bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+      <div className=" flex mt-7 h-[660px] rounded-lg border-2 border-dashed border-gray-300 ">
+        <div className="w-full  bg-gray-50  flex items-center justify-center">
           <div className="text-center text-gray-500">
             <div className="text-6xl mb-4">🔬</div>
             <h3 className="text-xl font-semibold mb-2">Industrial Research Cards</h3>

@@ -1,0 +1,21 @@
+:root {
+  --color-theme: #4a83f7;
+  --color-addsBg: #FFF3EB;
+  --color-cardBtn: #f65456;
+  --color-cardBtnBorder: #ffe7d6
+}
+.text-theme {
+  color: var(--color-theme) !important;
+}
+.bg-theme {
+  background-color: var(--color-theme) !important;
+}
+.bg-addsBg {
+  background-color: var(--color-addsBg) !important;
+}
+.text-cardBtn {
+  color: var(--color-cardBtn) !important;
+}
+.border-cardBtnBorder {
+  border-color: var(--color-cardBtnBorder) !important;
+}

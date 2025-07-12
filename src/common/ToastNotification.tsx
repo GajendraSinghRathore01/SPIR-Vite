@@ -19,7 +19,7 @@ export const ToastProvider = ({ children }: ToastProviderProps) => {
   return (
     <ToastContext.Provider value={{ showToast }}>
       {children}
-      <ToastContainer position="top-right" autoClose={1500} />
+      <ToastContainer position="top-right" autoClose={2000} />
     </ToastContext.Provider>
   );
 };

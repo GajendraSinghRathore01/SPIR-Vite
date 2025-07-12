@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import CommonCard from '../../common/CommonCard';
 
 interface GovernmentSchemeProps {
-  governmentData: any[]; // Changed from productInfo to governmentData
-  loading: boolean;
+  governmentData?: any[]; // Changed from productInfo to governmentData
+  loading?: boolean;
 }
 
 const GovernmentScheme: React.FC<GovernmentSchemeProps> = memo(({ governmentData, loading }) => {
@@ -19,11 +19,12 @@ const GovernmentScheme: React.FC<GovernmentSchemeProps> = memo(({ governmentData
   // Handle empty data
   if (!governmentData || governmentData.length === 0) {
     return (
-      <div className="flex gap-5">
-        <div className="w-full min-h-[580px] bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+      <div className="flex gap-5 mt-7">
+        <div className="w-full h-[690px] bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
           <div className="text-center  text-gray-500">
-            <p className="text-lg font-semibold">No Government Schemes Available</p>
-            <p className="text-sm mt-2">Government schemes data is not available for this product.</p>
+            <div className="text-6xl mb-4">🏛</div>
+            <p className="text-lg font-semibold">Government Schemes Cards</p>
+            <p className="text-sm mt-2">Future government scheme content will appear here</p>
           </div>
         </div>
       </div>
@@ -32,10 +33,10 @@ const GovernmentScheme: React.FC<GovernmentSchemeProps> = memo(({ governmentData
 
   return (
     <>
-      <div className="flex gap-5">
-        <div className="w-full min-h-[580px] ">
+      <div className="border-2 border-dashed border-gray-300 mt-7 h-[660px] ">
+        <div className="w-full">
           {/* Map through government scheme data */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-2 border-dashed rounded-lg  bg-gray-50 border-gray-300 p-5 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  rounded-lg  bg-gray-50  p-5 ">
             {governmentData?.map((item) => (
               <CommonCard 
                 key={item?._id}
