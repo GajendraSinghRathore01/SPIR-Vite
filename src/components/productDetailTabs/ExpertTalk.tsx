@@ -1,34 +1,31 @@
-import React, { memo } from 'react';
+import React from "react";
+import LoadingContent from "../../common/LoadingContent";
 
 interface ExpertTalkProps {
   productInfo: any[];
   loading?: boolean;
 }
 
-const ExpertTalk: React.FC<ExpertTalkProps> = memo(({ productInfo, loading }) => {
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center mt-7 p-4">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FA8232]"></div>
-        <span className="ml-2 text-[#FA8232]">Loading Expert Talk...</span>
-      </div>
-    );
-  }
-
+const ExpertTalk: React.FC<ExpertTalkProps> = ({ productInfo, loading }) => {
   return (
     <>
-      {/* Vacant div for future cards - parallel to CustomerSupport */}
-      <div className="flex h-[660px] mt-7 w-full  rounded-lg border-2 border-dashed border-gray-300 ">
-        <div className="w-full  bg-gray-50 flex items-center justify-center">
-          <div className="text-center text-gray-500">
-            <div className="text-6xl mb-4">📋</div>
-            <h3 className="text-xl font-semibold mb-2">Expert Talk Cards</h3>
-            <p className="text-sm">Future expert talk content will appear here</p>
+      {loading ? (
+        <LoadingContent />
+      ) : (
+        <div className="flex h-[660px] mt-7 w-full  rounded-lg border-2 border-dashed border-gray-300 ">
+          <div className="w-full  bg-gray-50 flex items-center justify-center">
+            <div className="text-center text-gray-500">
+              <div className="text-6xl mb-4">📋</div>
+              <h3 className="text-xl font-semibold mb-2">Expert Talk Cards</h3>
+              <p className="text-sm">
+                Future expert talk content will appear here
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
-});
+};
 
 export default ExpertTalk;

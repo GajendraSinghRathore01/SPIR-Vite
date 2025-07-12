@@ -1,24 +1,17 @@
-import React, { memo } from 'react';
+import React from 'react';
+import LoadingContent from '../../common/LoadingContent';
 
 interface ServiceProps {
   productInfo: any[];
   loading?: boolean;
 }
 
-const Service: React.FC<ServiceProps> = memo(({ productInfo, loading }) => {
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center mt-7 p-4">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FA8232]"></div>
-        <span className="ml-2 text-[#FA8232]">Loading Service...</span>
-      </div>
-    );
-  }
+const Service: React.FC<ServiceProps> = (({ productInfo, loading }) => {
 
   return (
     <>
-      {/* Vacant div for future cards - parallel to CustomerSupport */}
-      <div className="flex mt-7 h-[660px] rounded-lg border-2 border-dashed border-gray-300">
+    {loading ? <LoadingContent/> : (
+   <div className="flex mt-7 h-[660px] rounded-lg border-2 border-dashed border-gray-300">
         <div className="w-full  bg-gray-50  flex items-center justify-center">
           <div className="text-center text-gray-500">
             <div className="text-6xl mb-4">⚙️</div>
@@ -27,6 +20,8 @@ const Service: React.FC<ServiceProps> = memo(({ productInfo, loading }) => {
           </div>
         </div>
       </div>
+    )}
+     
     </>
   );
 });

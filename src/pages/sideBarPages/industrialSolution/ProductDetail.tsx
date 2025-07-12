@@ -11,7 +11,7 @@ import {
   RelatedIndustries,
   OtherSector,
   CustomerSupport,
-} from "../../../components/product";
+} from "../../../components/productDetailComponent";
 import PageBreadcrumb from "../../../common/PageBreadCrumb";
 import { ExpertTalk, GovernmentScheme, IndustrialDocumentary, IndustrialResearch, ProjectReport, Service, SupplierExpertConnect } from "../../../components/productDetailTabs";
 import { useToast } from "../../../common/ToastNotification";
