@@ -74,14 +74,14 @@ const Products = () => {
     : [];
 
   return (
-    <div className="py-4">
+    <div className="pb-4 bg-gray-20">
       <PageBreadcrumb pageTitle="food supplies" />
       <div className="w-[90%] mx-auto mt-8 p-2 select-none">
         {loading ? (
           <LoadingContent />
         ) : (
           <div className="flex gap-6 ">
-            <div className="w-[15%] h-96 bg-addsBg p-4 border-2 border-gray-200 mt-11">
+            <div className="w-[15%] h-96 bg-white  p-4 border-2 border-gray-200 rounded-lg mt-11">
               <h2 className="text-xl mb-4">CATEGORY</h2>
               <div className="space-y-2">
                 {categoryList?.map((item) => {
@@ -91,8 +91,8 @@ const Products = () => {
                       key={item?._id}
                       className={`flex items-center space-x-2 ${
                         isActive
-                          ? "text-cardBtn font-semibold"
-                          : "text-gray-700"
+                          ? "text-[#fa8232] text-sm "
+                          : "text-gray-500 text-sm"
                       }`}
                       onClick={() =>
                         navigate("/products", {
@@ -105,9 +105,9 @@ const Products = () => {
                         name="category"
                         checked={isActive}
                         readOnly
-                        className="accent-[#f75632] hover:cursor-pointer"
+                        className="accent-[#f86541] hover:cursor-pointer"
                       />
-                      <p>{item?.category_name}</p>
+                      <p className="cursor-pointer capitalize overflow-hidden">{item?.category_name}</p>
                     </div>
                   );
                 })}
@@ -137,12 +137,13 @@ const Products = () => {
                           description={item?.product_description}
                           label="READ MORE"
                           onClick={() => handleCardClick(item)}
+                          styleCard="w-[20%]"
                         />
                       )
                     )
                   )
                 ) : (
-                  <div className="col-span-4 text-center text-gray-500">
+                  <div className="col-span-4 text-center text-gray">
                     {searchTerm
                       ? "No products found matching your search."
                       : "No products available."}

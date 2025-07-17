@@ -21,16 +21,16 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
       <table className="w-full ">
         <thead>
           <tr>
-            <th className="px-4 py-2 text-lg font-semibold bg-blue-500 text-white border border-l-0 border-gray-300 w-[65%]">
+            <th className="px-4 py-2 text-lg font-semibold  border bg-primaryBlue text-white border-l-0 border-[lightGray] w-[65%]">
               Scheme Name
             </th>
-            <th className="px-4 py-2 text-lg font-semibold bg-blue-500 text-white border border-gray-300">
+            <th className="px-4 py-2 text-lg font-semibold  border bg-primaryBlue text-white border-[lightGray]">
               Highlights
             </th>
-            <th className="px-4 py-2 text-lg font-semibold bg-blue-500 text-white border border-gray-300">
+            <th className="px-4 py-2 text-lg font-semibold  border bg-primaryBlue text-white border-[lightGray]">
               Documents
             </th>
-            <th className="px-4 py-2 text-lg font-semibold bg-blue-500 text-white border border-r-0 border-gray-300">
+            <th className="px-4 py-2 text-lg font-semibold  border bg-primaryBlue text-white border-r-0  border-[lightGray]">
               Videos
             </th>
           </tr>
@@ -39,10 +39,10 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
         <tbody>
           {tableData?.map((item) => (
             <tr key={item?._id}>
-              <td className="px-4 py-2 border border-gray-300">
+              <td className="px-4 py-2 border border-[lightGray]">
                 {item?.scheme_name}
               </td>
-              <td className="px-4 py-2 border border-gray-300">
+              <td className="px-4 py-2 border border-[lightGray]">
                 {item?.scheme_highlights?.length ? (
                   <div className="flex justify-evenly gap-2">
                     {item?.scheme_highlights?.map(
@@ -67,7 +67,7 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
                   "--"
                 )}
               </td>
-              <td className="px-4 py-2 border border-gray-300">
+              <td className="px-4 py-2 border border-[lightGray]">
                 {item?.scheme_documents?.length ? (
                   <div className="flex justify-evenly">
                     {item?.scheme_documents?.map((item, index) => (
@@ -86,7 +86,7 @@ const SchemeTable: React.FC<SchemeTableProps> = ({ tableData }) => {
                   "--"
                 )}
               </td>
-              <td className="px-4 py-2 border border-gray-300">
+              <td className="px-4 py-2 border border-[lightGray]">
                 {item?.scheme_video?.length ? (
                   <div className="flex justify-evenly">
                     {item?.scheme_video?.map((item, index) => (

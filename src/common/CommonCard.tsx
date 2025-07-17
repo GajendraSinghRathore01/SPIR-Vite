@@ -2,7 +2,6 @@ import React from "react";
 import { BASE_URL } from "../services/apiConnector";
 import CommonButton from "./CommonButton";
 
-
 //  console.log(BASE_URL, "this is base url for the image");
 interface CommonCardProps {
   imageUrl?: string;
@@ -23,16 +22,25 @@ const CommonCard: React.FC<CommonCardProps> = ({
 }) => {
   return (
     <div
-      onClick={onClick}
-      className={`${styleCard} p-4 w-72  min-h-96  flex flex-col items-center space-y-4 border  border-gray-300 rounded-lg hover:cursor-pointer shadow-xl`}
+      onClick={onClick} 
+      className={`${styleCard} p-4 min-h-96 flex flex-col items-center space-y-4 bg-white border  border-[lightGray] rounded-lg cursor-pointer shadow-xl`}
     >
-      <div className="w-full h-40 flex items-center justify-center overflow-hidden ">
-        <img src={`${BASE_URL}/${imageUrl}`} alt={title} className="w-full h-full rounded-lg object-cover" />
+      <div className="w-full h-40  flex items-center justify-center overflow-hidden ">
+        <img
+          src={`${BASE_URL}/${imageUrl}`}
+          alt={title}
+          className="w-full h-full rounded-lg object-cover"
+        />
       </div>
-
-      <h2 className="text-xl ">{title}</h2>
-      <p className="text-md line-clamp-2 text-center">{description}</p>
-      <CommonButton label={label} type="button" styleButton="border-2 border-cardBtnBorder text-cardBtn rounded-lg py-1 px-2  hover:cursor-pointer" />
+      {/* <div className="flex flex-col space-y-4"> */}
+        <h2 className="text-lg font-semibold capitalize">{title}</h2>
+        <p className="text-md   line-clamp-2 ">{description}</p>
+        <CommonButton
+          label={label}
+          type="button"
+          styleButton="border-2 border-cardBtnBorder text-cardBtn rounded-lg py-1 px-2  hover:cursor-pointer"
+        />
+      {/* </div> */}
     </div>
   );
 };

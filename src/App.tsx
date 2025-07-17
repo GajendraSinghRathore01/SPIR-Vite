@@ -19,7 +19,7 @@ function App() {
       <Route element={<Protected />}>
         <Route element={<MainLayout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/IndustrialSolution" element={< IndustrialSolution/>} />
+          <Route path="/industrialSolution" element={< IndustrialSolution/>} />
           <Route path="/products" element={<Products />} />
           <Route path="/industryDocumentary" element={<ProductDetail />} />
           <Route path="/comingSoon" element={<ComingSoon/>} />
@@ -33,3 +33,6 @@ function App() {
 }
 
 export default App;
+
+
+

@@ -11,9 +11,10 @@ const Home = () => {
     }
   },[]);
   return (
-    <div className=" h-screen flex justify-center items-center bg-gray-100 ">
-      <div className="p-2  w-full text-center">
-       <h1 className="text-xl italic ">Home page</h1>
+    <div className=" h-screen p-5  bg-[url(/src/assets/progress.jpg)] bg-no-repeat bg-center bg-cover w-full">
+      <div className="p-2 w-full text-center mt-16">
+       <h1 className="text-xl italic text-[#456fff]">We're building something amazing behind the scenes!</h1>
+       <h1 className="text-xl italic text-[#456fff]">But good news — you can still explore Schemes, Industrial Solutions, and Membership features!</h1>
       </div>
     </div>
   )

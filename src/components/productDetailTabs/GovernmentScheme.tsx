@@ -17,9 +17,9 @@ const GovernmentScheme: React.FC<GovernmentSchemeProps> = ({
       {loading ? (
         <LoadingContent />
       ) : !governmentData || governmentData.length === 0 ? (
-        <div className="flex gap-5 mt-7">
-        <div className="w-full h-[690px] bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
-          <div className="text-center  text-gray-500">
+        <div className="flex gap-5 mt-7 border-2 border-lightGray border-dashed rounded-lg">
+        <div className="w-full h-[690px] bg-lightGray flex items-center justify-center">
+          <div className="text-center  text-[gray]">
             <div className="text-6xl mb-4">🏛</div>
             <p className="text-lg font-semibold">Government Schemes Cards</p>
             <p className="text-sm mt-2">
@@ -29,10 +29,10 @@ const GovernmentScheme: React.FC<GovernmentSchemeProps> = ({
         </div>
       </div>
       ) : (
-        <div className="border-2 border-dashed border-gray-300 mt-7 h-[660px] ">
+        <div className="border-2 border-dashed border-[gray]-300 mt-7 h-[660px] ">
           <div className="w-full">
             {/* Map through government scheme data */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  rounded-lg  bg-gray-50  p-5 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  rounded-lg  bg-[gray]-50  p-5 ">
               {governmentData?.map((item) => (
                 <CommonCard
                   key={item?._id}

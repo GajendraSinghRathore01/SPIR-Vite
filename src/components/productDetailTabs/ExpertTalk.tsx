@@ -12,9 +12,9 @@ const ExpertTalk: React.FC<ExpertTalkProps> = ({ productInfo, loading }) => {
       {loading ? (
         <LoadingContent />
       ) : (
-        <div className="flex h-[660px] mt-7 w-full  rounded-lg border-2 border-dashed border-gray-300 ">
-          <div className="w-full  bg-gray-50 flex items-center justify-center">
-            <div className="text-center text-gray-500">
+        <div className="flex h-[660px] mt-7 w-full  rounded-lg border-2 border-dashed border-lightGray ">
+          <div className="w-full  bg-lightGray flex items-center justify-center">
+            <div className="text-center text-[gray]">
               <div className="text-6xl mb-4">📋</div>
               <h3 className="text-xl font-semibold mb-2">Expert Talk Cards</h3>
               <p className="text-sm">

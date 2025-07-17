@@ -94,7 +94,7 @@ const ProductDetail = () => {
 console.log("details of product",productInfo);
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-lightGray">
       {productInfo.map((item) => (
         <PageBreadcrumb key={item?._id} pageTitle={item?.product_name} />
       ))}
@@ -107,7 +107,7 @@ console.log("details of product",productInfo);
               tabs={popularTabs}
               containerClassName="px-0"
               listClassName="flex space-x-2 "
-              itemClassName="border-[1px] border-[#E4E7E9] hover:border-[#FA8232] px-2 py-1 hover:rounded-xl hover:text-[#FA8232] hover:bg-[#FFF3EB] cursor-pointer text-sm"
+              itemClassName="border-[1px] border-[lightGray]  px-2 py-1  hover:text-[#fa8232] hover:bg-[#FFF3EB] cursor-pointer text-sm"
             />
           </div>
           <div>
@@ -127,7 +127,7 @@ console.log("details of product",productInfo);
 
         {/* right part of the page */}
         <div className="w-[25%]  mt-28 space-y-10 ">
-          { activeTab === "Industrial Documentary" && (
+          {/* { activeTab === "Industrial Documentary" && (
                productInfo.map((item, index) => (
             <div key={`productInfo-${index}`} className="flex flex-col gap-5">
               <div className="bg-[#D49A28] h-52 rounded-lg p-2">
@@ -141,7 +141,7 @@ console.log("details of product",productInfo);
               </div>
             </div>
           ))
-          )} 
+          )}  */}
 
           <CustomerSupport
             onSubscribe={() => console.log("Subscribe Successfully")}

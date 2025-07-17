@@ -53,40 +53,37 @@ const IndustrialSolution = () => {
         <h2 className="text-xl font-bold mt-6 mb-4 ">
           Industrial Solutions Your Gateway to 1500+ Business Opportunities!
         </h2>
-        <div className="flex gap-6">
-          <div className="w-[85%]">
-            <SearchBar
-              value={searchTerm}
-              onChange={setSearchTerm}
-              placeholder="Search category"
-            />
-            <div className=" mt-12 flex flex-wrap items-center gap-6 ">
-              {loading ? (
-                <LoadingContent />
-              ) : filteredData?.length > 0 ? (
-                filteredData?.map((item: any) => (
-                  <CommonCard
-                    key={item?._id}
-                    imageUrl={item?.category_logo}
-                    title={item?.category_name}
-                    description={item?.category_description}
-                    label="READ MORE"
-                    onClick={() => handleCardClick(item)}
-                  />
-                ))
-              ) : (
-                <div className="col-span-4 h-screen text-center text-gray-500">
-                  {loading
-                    ? ""
-                    : searchTerm
-                    ? "No products found matching your search."
-                    : "Something went wrong."}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="w-[15%] bg-addsBg border-2 border-gray-200 p-4  ">
-            ADDS
+
+        <div >
+          <SearchBar
+            value={searchTerm}
+            onChange={setSearchTerm}
+            placeholder="Search category"
+          />
+          <div className=" mt-12 flex flex-wrap items-center gap-6 ">
+            {loading ? (
+              <LoadingContent />
+            ) : filteredData?.length > 0 ? (
+              filteredData?.map((item: any) => (
+                <CommonCard
+                  key={item?._id}
+                  imageUrl={item?.category_logo}
+                  title={item?.category_name}
+                  description={item?.category_description}
+                  label="READ MORE"
+                  onClick={() => handleCardClick(item)}
+                  styleCard="w-[18%]"
+                />
+              ))
+            ) : (
+              <div className="col-span-4 h-screen text-center text-[gray]">
+                {loading
+                  ? ""
+                  : searchTerm
+                  ? "No products found matching your search."
+                  : "Something went wrong."}
+              </div>
+            )}
           </div>
         </div>
       </div>

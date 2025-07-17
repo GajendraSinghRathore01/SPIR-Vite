@@ -4,6 +4,7 @@ import {
   sidebarIcon,
   closeSidebarIcon,
   message,
+  blueLogo,
 } from "../assets";
 import CommonNavbar from "./CommonNavbar";
 import { useLocation, useNavigate } from "react-router";
@@ -46,9 +47,9 @@ const HeaderNavbar = () => {
   const navbarTabs = [
   {
     label: "Industrial Solution",
-    isActive: location.pathname === "/IndustrialSolution",
+    isActive: location.pathname === "/industrialSolution",
     onClick: () => {
-      navigate("/IndustrialSolution");
+      navigate("/industrialSolution");
       closeSidebar();
     },
   },
@@ -113,7 +114,7 @@ const HeaderNavbar = () => {
 
   return (
     <>
-      <div className="bg-theme select-none">
+      <div className="bg-primaryBlue select-none">
         <div className="w-[90%] mx-auto flex justify-between p-2 items-center">
           <div className="flex space-x-6">
             <div className="flex  space-x-2 text-white">
@@ -127,14 +128,14 @@ const HeaderNavbar = () => {
       </div>
 
       <div className="w-[90%] mx-auto flex justify-between items-center p-4 select-none">
-        <h1 className="text-5xl font-bold text-theme cursor-pointer" onClick={() => navigate("/home")}>SPIR</h1>
+        <img src={blueLogo} className="w-24 cursor-pointer" onClick={() => navigate("/home")} />
         <CommonNavbar
           tabs={HomeTabs}
           listClassName="flex justify-center space-x-6"
           itemClassName="bg-transparent"
         />
         <div className="flex space-x-6 items-center">
-          <p className="hover:text-[#fa8a3f] font-bold">My Account</p>
+          <p className="hover:text-[#fa8232] font-bold">My Account</p>
           <img
             src={sidebarIcon}
             onClick={toggleSidebar}

@@ -1,14 +1,35 @@
 :root {
-  --color-theme: #4a83f7;
+  --color-primaryBlue: #456fff; 
+  --color-gray: #6B7280;
+  --color-lightGray: #f9f9f9; 
+  --color-orange: #fc7c27; 
   --color-addsBg: #FFF3EB;
   --color-cardBtn: #f65456;
   --color-cardBtnBorder: #ffe7d6
 }
-.text-theme {
-  color: var(--color-theme) !important;
+.text-primaryBlue {
+  color: var(--color-primaryBlue) !important;
 }
-.bg-theme {
-  background-color: var(--color-theme) !important;
+.bg-primaryBlue {
+  background-color: var(--color-primaryBlue) !important;
+}
+.text-gray {
+  color: var(--color-gray) !important;
+}
+.bg-gray {
+  background-color: var(--color-gray) !important;
+}
+.text-lightGray {
+  color: var(--color-lightGray) !important;
+}
+.bg-lightGray {
+  background-color: var(--color-lightGray) !important;
+}
+.text-orange {
+  color: var(--color-orange) !important;
+}
+.bg-orange {
+  background-color: var(--color-orange) !important;
 }
 .bg-addsBg {
   background-color: var(--color-addsBg) !important;

@@ -7,14 +7,14 @@ interface BreadcrumbProps {
 
 const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
   return (
-    <div className="bg-tertiary">
+    <div className="bg-[#f0f5ff]">
     <div className="flex w-[90%] mx-auto py-4 px-2  ">
      
       <nav>
         <ol className="flex gap-1.5">
           <li>
             <Link
-              className="inline-flex items-center gap-1.5 text-sm text-gray-500 "
+              className="inline-flex items-center gap-1.5 text-sm text-[gray] "
               to="/home"
             >
              <img src={home} /> Home 

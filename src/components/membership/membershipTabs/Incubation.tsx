@@ -1,15 +1,14 @@
-import MembershipCard from "../MembershipCard"
-
+import MembershipCard from "../MembershipCard";
 
 const Incubation = () => {
   return (
-    <div className="flex justify-center ">
-      <div className="border border-gray-300"><MembershipCard/></div>
-      <div className="border border-gray-300"><MembershipCard/></div>
-      <div className="border border-gray-300"><MembershipCard/></div>
-      <div className="border border-gray-300"><MembershipCard/></div>
+    <div className="flex justify-center w-[90%] mx-auto">
+      <MembershipCard />
+      <MembershipCard />
+      <MembershipCard />
+      <MembershipCard />
     </div>
-  )
-}
+  );
+};
 
-export default Incubation
+export default Incubation;

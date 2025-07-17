@@ -29,7 +29,7 @@ const RelatedIndustries = ({
       <h3 className="font-bold text-3xl">Related Industries</h3>
 
       {data?.length === 0 ? (
-        <p className="text-center py-8 text-gray-500">
+        <p className="text-center py-8 text-[gray]">
           No related industries found
         </p>
       ) : (
@@ -48,7 +48,7 @@ const RelatedIndustries = ({
                 state: { categoryId: selectedCategoryId },
               })
             }
-            styleButton="border-[1px] cursor-pointer hover:bg-[#FFF3EB] border-[#FA8232] text-[#FA8232] py-2 px-4"
+            styleButton="border-[1px] cursor-pointer hover:bg-[#FFF3EB] border-[#fa8232] text-[#fa8232] py-2 px-4"
           />
         </div>
       )}

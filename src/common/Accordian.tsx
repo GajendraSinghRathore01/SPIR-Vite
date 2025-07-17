@@ -17,7 +17,7 @@ const Accordian: React.FC<AccordianProps> = ({
   } 
   return (
     <div
-      className="border-[1px] border-[#E4E7E9] rounded-lg p-4 flex flex-col w-full select-none cursor-pointer text-lg"
+      className="border-[1px] border-[lightGray] rounded-lg p-4 flex flex-col w-full select-none cursor-pointer text-lg"
       onClick={onToggle} // trigger the onToggle function when clicked
     >
       <div className="flex justify-between items-center">

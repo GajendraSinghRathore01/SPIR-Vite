@@ -19,17 +19,17 @@ const DynamicContent = () => {
       case "BUSINESS INCUBATION":
         return <Incubation/>;
       case "STARTUP":
-        return <div className="text-center p-5">this is startup page</div>;
+        return <div className="text-center border border-pink-300 rounded-xl p-5">this is startup page</div>;
       case "FRANCHISE":
-        return <div className="text-center p-5">this is franchise page</div>;
+        return <div className="text-center border border-pink-300 rounded-xl p-5">this is franchise page</div>;
       case "BUSINESS NETWORKING":
-        return <div className="text-center p-5">this is business networking page</div>;
+        return <div className="text-center border border-pink-300 rounded-xl p-5">this is business networking page</div>;
       default:
         return <div>tab not found</div>;
     }
   };
   return (
-    <div className="flex flex-col bg-gray-100 space-y-8 pb-12" >
+    <div className="flex flex-col bg-[gray]-100 space-y-8 pb-12" >
       <div>
         <CommonNavbar
           tabs={membershipTabs}
@@ -38,7 +38,7 @@ const DynamicContent = () => {
           containerClassName="flex justify-center "
         />
       </div>
-      <div className=" border w-[90%] mx-auto  bg-gray-100">{renderContent()}</div>
+      <div className="w-[90%] mx-auto ">{renderContent()}</div>
     </div>
   );
 };

@@ -11,13 +11,13 @@ const SchemesCard: React.FC<SchemeCard> = ({ title, imageUrl, styleCard, onClick
     <div
       onClick={onClick}
       style={{ backgroundColor: styleCard }}
-      className={` flex flex-col items-center space-y-4 w-72 border-2 border-white rounded-xl cursor-pointer shadow-xl p-6 `}
+      className={` flex flex-col items-center space-y-4 w-72 rounded-xl cursor-pointer border-2 border-white border-dashed  p-6 `}
     >
-      <div className="w-full  flex items-center justify-center overflow-hidden">
+      <div className="   p-6  flex items-center justify-center overflow-hidden">
         <img
           src={`${BASE_URL}/${imageUrl}`}
           alt={title}
-          className="object-contain h-full"
+          className="object-contain h-full "
         />
       </div>
       <div>

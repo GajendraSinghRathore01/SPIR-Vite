@@ -36,8 +36,8 @@ const CommonNavbar = ({
             key={index}
             className={`
        hover:cursor-pointer
-    hover:text-[#fa8a3f]
-    ${data.isActive ? "text-[#fa8a3f] bg-[#fcf2ec] " : ""}
+    hover:text-[#fa8232]
+    ${data.isActive ? "text-[#fa8232] bg-[#fcf2ec] " : ""}
     ${itemClassName}
   `}
             onClick={() => handleClick(data)}

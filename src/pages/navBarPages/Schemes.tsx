@@ -23,11 +23,12 @@ interface Scheme {
   schemes: SubScheme[];
 }
 const Schemes = () => {
-  const {showToast} = useToast();
+  const { showToast } = useToast();
   const [schemeData, setSchemeData] = useState<Scheme[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const dispatch = useAppDispatch();
+  const [selectId, setSelectId] = useState("");
 
   const getSchemeData = async () => {
     setLoading(true);
@@ -49,19 +50,20 @@ const Schemes = () => {
   const toggle = (id: string) =>
     setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
 
-  const handleClick = (id: string) =>
+  const handleClick = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
+    setSelectId(id);
+  };
   return (
     <div className="pb-8">
       <PageBreadcrumb pageTitle="Schemes" />
 
       <div className="w-[90%] mx-auto pt-12 space-y-24">
         {loading ? (
-          <LoadingContent/>
+          <LoadingContent />
         ) : schemeData ? (
           <>
-            <div className="flex justify-evenly flex-wrap gap-8">
+            <div className="flex justify-evenly flex-wrap gap-8 ">
               {schemeData?.map((item) => (
                 <SchemesCard
                   key={item?._id}
@@ -77,23 +79,43 @@ const Schemes = () => {
               <div
                 key={item?._id}
                 id={item?._id}
-                className="flex flex-col items-center space-y-2"
+                className={`flex flex-col items-center space-y-2 p-5 rounded-xl `}
               >
                 <h2 className="text-3xl font-bold text-center">{item?.name}</h2>
                 <div className="flex gap-2 w-[60%]">
-                  <span
-                    className={`text-justify w-[90%] ${
-                      open[item?._id] ? "line-clamp-none" : "line-clamp-1"
-                    }`}
-                  >
-                    {item?.description}
+                  <span className={`text-justify w-[90%]`}>
+                    {open[item?._id] ? (
+                      <span>
+                        {item?.description}
+                        <span
+                          className="text-xs text-primaryBlue cursor-pointer ml-2"
+                          onClick={() => toggle(item?._id)}
+                        >
+                             show less
+                        </span>
+                      </span>
+                    ) : (
+                      <span
+                        className="line-clamp-1"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {item?.description}
+                      </span>
+                    )}
                   </span>
-                  <span
-                    className="text-xs text-blue-500 w-[10%] pt-2 cursor-pointer"
-                    onClick={() => toggle(item?._id)}
-                  >
-                    {open[item?._id] ? "show less" : "show more"}
-                  </span>
+
+                  {!open[item?._id] && (
+                    <span
+                      className="text-xs text-primaryBlue pt-2 cursor-pointer"
+                      onClick={() => toggle(item?._id)}
+                    >
+                      show more
+                    </span>
+                  )}
                 </div>
 
                 {item?.schemes?.length > 0 && (

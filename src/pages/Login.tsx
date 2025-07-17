@@ -30,10 +30,10 @@ const Login = () => {
   return (
     <div className="h-screen md:overflow-y-hidden">
       <CommonLoginNavbar />
-      <div className="flex justify-center items-center h-[93%]  bg-gray-100">
+      <div className="flex justify-center items-center h-[93%]  bg-lightGray">
         <div className="py-20 w-[90%] h-full mx-auto flex justify-between  gap-10">
-          <div className="w-[50%] bg-white rounded-lg   ">
-            <img className="w-full h-full" src={loginImage} />
+          <div className="w-[50%]">
+            <img className="w-full h-full rounded-2xl" src={loginImage} />
           </div>
           <div className="w-[50%] flex justify-center items-center">
             <form
@@ -41,8 +41,8 @@ const Login = () => {
               className="w-[80%] pl-[15%] float-end mx-auto p-4  space-y-12   "
             >
               <div className="flex flex-col items-center justify-center space-y-2">
-                <h1 className="text-2xl font-semibold">Log In</h1>
-                <span className="text-sm font-semibold text-gray-500">
+                <h1 className="text-2xl font-semibold ">Log In</h1>
+                <span className="text-sm font-semibold text-[gray]">
                   Please enter your details
                 </span>
               </div>
@@ -66,7 +66,7 @@ const Login = () => {
                   register={register}
                   errors={errors}
                 />
-                <div className="text-xs text-blue-500 flex justify-between   ">
+                <div className="text-xs text-primaryBlue flex justify-between   ">
                   <p className="cursor-pointer">Sign In With OTP</p>
                   <p className="cursor-pointer">Forgot Password?</p>
                 </div>
@@ -75,7 +75,7 @@ const Login = () => {
                 label="LOG IN"
                 type="submit"
                 styleLabel="text-lg text-white font-semibold"
-                styleButton="w-28 px-2 py-1 rounded-lg bg-[#fa8232] cursor-pointer shadow-xl hover:bg-green-500"
+                styleButton="w-28 px-2 py-1 rounded-lg bg-[orange] cursor-pointer shadow-xl hover:bg-green-500"
               />
             </form>
           </div>

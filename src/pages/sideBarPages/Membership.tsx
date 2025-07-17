@@ -5,7 +5,7 @@ import VideoSection from "../../components/membership/VideoSection"
 
 const Membership = () => {
   return (
-    <div>
+    <div className="">
         <SpirMembership/>
         <DynamicContent/>
         <VideoSection/>
