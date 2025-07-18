@@ -137,7 +137,6 @@ const Products = () => {
                           description={item?.product_description}
                           label="READ MORE"
                           onClick={() => handleCardClick(item)}
-                          styleCard="w-[20%]"
                         />
                       )
                     )

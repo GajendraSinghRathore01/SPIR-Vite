@@ -72,7 +72,6 @@ const IndustrialSolution = () => {
                   description={item?.category_description}
                   label="READ MORE"
                   onClick={() => handleCardClick(item)}
-                  styleCard="w-[18%]"
                 />
               ))
             ) : (

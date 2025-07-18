@@ -82,7 +82,7 @@ const Schemes = () => {
                 className={`flex flex-col items-center space-y-2 p-5 rounded-xl `}
               >
                 <h2 className="text-3xl font-bold text-center">{item?.name}</h2>
-                <div className="flex gap-2 w-[60%]">
+                <div className="flex  w-[60%]">
                   <span className={`text-justify w-[90%]`}>
                     {open[item?._id] ? (
                       <span>
@@ -91,7 +91,7 @@ const Schemes = () => {
                           className="text-xs text-primaryBlue cursor-pointer ml-2"
                           onClick={() => toggle(item?._id)}
                         >
-                             show less
+                          show less
                         </span>
                       </span>
                     ) : (
@@ -110,10 +110,10 @@ const Schemes = () => {
 
                   {!open[item?._id] && (
                     <span
-                      className="text-xs text-primaryBlue pt-2 cursor-pointer"
+                      className="text-xs text-primaryBlue pt-2 cursor-pointer w-16"
                       onClick={() => toggle(item?._id)}
                     >
-                      show more
+                      Read more
                     </span>
                   )}
                 </div>

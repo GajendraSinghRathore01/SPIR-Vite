@@ -23,7 +23,7 @@ const CommonCard: React.FC<CommonCardProps> = ({
   return (
     <div
       onClick={onClick} 
-      className={`${styleCard} p-4 min-h-96 flex flex-col items-center space-y-4 bg-white border  border-[lightGray] rounded-lg cursor-pointer shadow-xl`}
+      className={`${styleCard} p-4 w-64 min-h-96 flex flex-col items-center space-y-4 bg-white border  border-[lightGray] rounded-lg cursor-pointer shadow-xl`}
     >
       <div className="w-full h-40  flex items-center justify-center overflow-hidden ">
         <img
