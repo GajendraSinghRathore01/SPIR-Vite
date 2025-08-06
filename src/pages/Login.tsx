@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router";
+import { useToast } from "../common/ToastNotification";
 
 
 const loginValidation = yup.object().shape({
@@ -13,6 +14,9 @@ const loginValidation = yup.object().shape({
   password: yup.string().required().min(6, "please enter atleast 6 characters"),
 });
 const Login = () => {
+  const email = "utsav@gmail.com";
+  const password = "Test!1234"
+  const {showToast} = useToast();
   const {
     register,
     handleSubmit,
@@ -22,13 +26,16 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const onSubmit = async (data: any) => {
-    localStorage.setItem("login", data);
-    sessionStorage.setItem("justLoggedIn", "true");
+    if(email === data.email && password === data.password) {
+     localStorage.setItem("login", JSON.stringify(data));
+    sessionStorage.setItem("justLoggedIn", "true ");
     navigate("/home");
-   
+    }else {
+      showToast("Invalid Credentials", "error");
+    }
   };
   return (
-    <div className="h-screen md:overflow-y-hidden">
+    <div className="h-screen md:overflow-y-hidden select-none">
       <CommonLoginNavbar />
       <div className="flex justify-center items-center h-[93%]  bg-lightGray">
         <div className="py-20 w-[90%] h-full mx-auto flex justify-between  gap-10">
@@ -52,7 +59,7 @@ const Login = () => {
                   styleLabel="font-semibold"
                   name="email"
                   placeholder="enter your email"
-                  styleInput="px-2 py-1 border  bg-white "
+                  styleInput="px-2 py-1 border  "
                   register={register}
                   errors={errors}
                 />
@@ -62,9 +69,9 @@ const Login = () => {
                   name="password"
                   placeholder="enter your password"
                   type="password"
-                  styleInput="px-2 py-1 border bg-white "
                   register={register}
                   errors={errors}
+                  styleInput="px-2 py-1 border "
                 />
                 <div className="text-xs text-primaryBlue flex justify-between   ">
                   <p className="cursor-pointer">Sign In With OTP</p>

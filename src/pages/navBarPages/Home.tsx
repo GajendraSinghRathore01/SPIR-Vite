@@ -6,10 +6,14 @@ const Home = () => {
   useEffect(() => {
       const justLoggedIn = sessionStorage.getItem("justLoggedIn");
     if (justLoggedIn) {
-      showToast("Login successful", "success");
+      showToast("Login successful 👍", "success");
       sessionStorage.removeItem("justLoggedIn"); 
     }
+
   },[]);
+
+
+  
   return (
     <div className=" h-screen p-5  bg-[url(/src/assets/progress.jpg)] bg-no-repeat bg-center bg-cover w-full">
       <div className="p-2 w-full text-center mt-16">
@@ -21,3 +25,4 @@ const Home = () => {
 }
 
 export default Home
+  

@@ -28,7 +28,6 @@ const Schemes = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState<Record<string, boolean>>({});
   const dispatch = useAppDispatch();
-  const [selectId, setSelectId] = useState("");
 
   const getSchemeData = async () => {
     setLoading(true);
@@ -52,11 +51,10 @@ const Schemes = () => {
 
   const handleClick = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setSelectId(id);
   };
   return (
     <div className="pb-8">
-      <PageBreadcrumb pageTitle="Schemes" />
+      <PageBreadcrumb pageTitle="Schemes" />  
 
       <div className="w-[90%] mx-auto pt-12 space-y-24">
         {loading ? (

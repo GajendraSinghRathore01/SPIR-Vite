@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
       localStorage.removeItem("userToken");
       // window.location.href = "/";
     }
-    toast.error(error?.response?.data?.message || "Something went wrong");
+    toast.error(error?.response?.data?.message || "Something went wrong");  
     return Promise.reject(error?.response?.data?.message || error.message);
   }
 );

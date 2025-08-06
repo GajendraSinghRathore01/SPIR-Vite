@@ -7,9 +7,10 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store.tsx";
 import { ToastProvider } from "./common/ToastNotification.tsx";
+import { StrictMode } from "react";
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
@@ -19,5 +20,5 @@ createRoot(document.getElementById("root")!).render(
         </PersistGate>
       </Provider>
     </BrowserRouter>
-  // </StrictMode> 
+  </StrictMode> 
 );

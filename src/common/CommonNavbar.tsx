@@ -1,7 +1,7 @@
 type Tab = {
   label: string;
   onClick?: () => void;
-  isActive?: boolean; 
+  isActive?: boolean;
 };
 
 type Props = {
@@ -10,7 +10,6 @@ type Props = {
   containerClassName?: string;
   listClassName?: string;
   itemClassName?: string;
- 
 };
 
 const CommonNavbar = ({
@@ -19,10 +18,7 @@ const CommonNavbar = ({
   containerClassName = "",
   listClassName = "",
   itemClassName = "",
-
-  
 }: Props) => {
-
   const handleClick = (tab: Tab) => {
     tab.onClick?.();
     onClick?.();
@@ -37,7 +33,7 @@ const CommonNavbar = ({
             className={`
        hover:cursor-pointer
     hover:text-[#fa8232]
-    ${data.isActive ? "text-[#fa8232] bg-[#fcf2ec] " : ""}
+    ${data.isActive ? "text-[#0d6efd] bg-blue-50 " : ""}
     ${itemClassName}
   `}
             onClick={() => handleClick(data)}

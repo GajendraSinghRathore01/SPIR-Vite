@@ -13,108 +13,115 @@ const HeaderNavbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
-
   const navigate = useNavigate();
 
   const HomeTabs = [
-  {
-    label: "Home",
-    isActive: location.pathname === "/home",
-    onClick: () => navigate("/home"),
-  },
-  {
-    label: "About",
-    isActive: location.pathname === "/about",
-    onClick: () => navigate("/comingSoon"),
-  },
-  {
-    label: "Schemes",
-    isActive: location.pathname === "/schemes",
-    onClick: () => navigate("/schemes"),
-  },
-  {
-    label: "Events",
-    isActive: location.pathname === "/events",
-    onClick: () => navigate("/comingSoon"),
-  },
-  {
-    label: "Industrial Report",
-    isActive: location.pathname === "/reports",
-    onClick: () => navigate("/comingSoon"),
-  },
-];
+    {
+      label: "Home",
+      isActive: location.pathname === "/home",
+      onClick: () => navigate("/home"),
+    },
+    {
+      label: "About",
+      isActive: location.pathname === "/about",
+      onClick: () => navigate("/comingSoon"),
+    },
+    {
+      label: "Schemes",
+      isActive: location.pathname === "/schemes",
+      onClick: () => navigate("/schemes"),
+    },
+    {
+      label: "Events",
+      isActive: location.pathname === "/events",
+      onClick: () => navigate("/comingSoon"),
+    },
+    {
+      label: "Industrial Report",
+      isActive: location.pathname === "/reports",
+      onClick: () => navigate("/comingSoon"),
+    },
+  ];
 
   const navbarTabs = [
-  {
-    label: "Industrial Solution",
-    isActive: location.pathname === "/industrialSolution",
-    onClick: () => {
-      navigate("/industrialSolution");
-      closeSidebar();
+    {
+      label: "Industrial Solution",
+      isActive: location.pathname === "/industrialSolution",
+      onClick: () => {
+        navigate("/industrialSolution");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Project Reports",
-    isActive: location.pathname === "/project-reports",
-    onClick: () => {
-      navigate("/comingSoon");
-      closeSidebar();
+    {
+      label: "Project Reports",
+      isActive: location.pathname === "/project-reports",
+      onClick: () => {
+        navigate("/comingSoon");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Services",
-    isActive: location.pathname === "/services",
-    onClick: () => {
-      navigate("/comingSoon");
-      closeSidebar();
+    {
+      label: "Services",
+      isActive: location.pathname === "/services",
+      onClick: () => {
+        navigate("/comingSoon");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Franchise",
-    isActive: location.pathname === "/franchise",
-    onClick: () => {
-      navigate("/comingSoon");
-      closeSidebar();
+    {
+      label: "Franchise",
+      isActive: location.pathname === "/franchise",
+      onClick: () => {
+        navigate("/comingSoon");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Startup",
-    isActive: location.pathname === "/startup",
-    onClick: () => {
-      navigate("/comingSoon");
-      closeSidebar();
+    {
+      label: "Startup",
+      isActive: location.pathname === "/startup",
+      onClick: () => {
+        navigate("/comingSoon");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Membership",
-    isActive: location.pathname === "/membership",
-    onClick: () => {
-      navigate("/membership");
-      closeSidebar();
+    {
+      label: "Membership",
+      isActive: location.pathname === "/membership",
+      onClick: () => {
+        navigate("/membership");
+        closeSidebar();
+      },
     },
-  },
-  {
-    label: "Join Us",
-    isActive: location.pathname === "/join-us",
-    onClick: () => {
-      navigate("/comingSoon");
-      closeSidebar();
+    {
+      label: "Join Us",
+      isActive: location.pathname === "/join-us",
+      onClick: () => {
+        navigate("/comingSoon");
+        closeSidebar();
+      },
     },
-  },
-];
-
+  ];
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    if (!sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
   };
 
   const closeSidebar = () => {
     setSidebarOpen(false);
+    document.body.style.overflow = "unset";
   };
-
+  const logoutFunction = () => {
+    localStorage.removeItem("login");
+    navigate("/");
+  };
   return (
     <>
-      <div className="bg-primaryBlue select-none">
+   <div className="bg-primaryBlue select-none">
         <div className="w-[90%] mx-auto flex justify-between p-2 items-center">
           <div className="flex space-x-6">
             <div className="flex  space-x-2 text-white">
@@ -126,9 +133,12 @@ const HeaderNavbar = () => {
           </div>
         </div>
       </div>
-
-      <div className="w-[90%] mx-auto flex justify-between items-center p-4 select-none">
-        <img src={blueLogo} className="w-24 cursor-pointer" onClick={() => navigate("/home")} />
+      <div className="w-[90%] mx-auto flex justify-between items-center p-4 select-none overflow-hidden">
+        <img
+          src={blueLogo}
+          className="w-24 cursor-pointer"
+          onClick={() => navigate("/home")}
+        />
         <CommonNavbar
           tabs={HomeTabs}
           listClassName="flex justify-center space-x-6"
@@ -143,18 +153,23 @@ const HeaderNavbar = () => {
           />
         </div>
       </div>
-
       <div
-        className={`fixed top-12 right-0 h-full w-80 bg-white shadow-lg transform ${
-          sidebarOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 z-50 select-none`}
+        className={`fixed top-12 right-0 h-full w-80 bg-white shadow-lg transform  ${
+          sidebarOpen ? "translate-x-0 " : "translate-x-full"
+        } transition-transform duration-800 z-50 select-none`}
       >
         <div className="flex justify-end pr-4 pt-6">
-          <img
-            src={closeSidebarIcon}
+          {/* <img
+            src={closeSidebarIcon}  
             onClick={closeSidebar}
             className="hover:cursor-pointer"
-          />
+          /> */}
+          <p
+            className="px-2 py-1 bg-black hover:bg-red-500 text-white rounded-lg font-semibold cursor-pointer"
+            onClick={logoutFunction}
+          >
+            Log-Out
+          </p>
         </div>
         <div className="p-4">
           <CommonNavbar
@@ -165,9 +180,8 @@ const HeaderNavbar = () => {
           />
         </div>
       </div>
-
       {sidebarOpen && (
-        <div className="fixed inset-0 z-40" onClick={toggleSidebar}></div>
+        <div className="fixed inset-0 z-40 " onClick={toggleSidebar}></div>
       )}
     </>
   );

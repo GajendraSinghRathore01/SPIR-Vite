@@ -7,10 +7,11 @@ import { useAppDispatch } from "../../redux/hooks";
 import { getCategory } from "../../redux/slice/getCategorySlice";
 import { useDebounce } from "../../common/Debounce";
 import LoadingContent from "../../common/LoadingContent";
-// import { useToast } from "../common/ToastNotification";
+import { useToast } from "../../common/ToastNotification";
+
 
 const IndustrialSolution = () => {
-  // const { showToast } = useToast();
+  const { showToast } = useToast();
   const [data, setData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearch = useDebounce(searchTerm, 300);
@@ -26,7 +27,7 @@ const IndustrialSolution = () => {
       setData(response?.data?.category || []);
     } catch (error) {
       console.log("error in api", error);
-      // showToast("something went wrong", "error");
+      showToast("something went wrong", "error");
     } finally {
       setLoading(false);
     }
@@ -42,8 +43,8 @@ const IndustrialSolution = () => {
 
   const filteredData = data?.filter((item) => {
     return item?.category_name
-      ?.toLowerCase()
-      ?.includes(debouncedSearch?.toLowerCase());
+      .toLowerCase()
+      .includes(debouncedSearch?.toLowerCase());
   });
 
   return (

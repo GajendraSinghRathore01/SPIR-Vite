@@ -13,7 +13,7 @@ import LoadingContent from "../../../common/LoadingContent";
 const Products = () => {
   const [productList, setProductList] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const debounceSearch = useDebounce(searchTerm, 500);
+  const debouncedSearch = useDebounce(searchTerm, 500);
   const [categoryList, setCategoryList] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -65,14 +65,11 @@ const Products = () => {
     });
   };
 
-  const filteredData = Array?.isArray(productList)
-    ? productList?.filter((item) =>
-        (item?.category?.category_name || "")
-          ?.toLowerCase()
-          ?.includes(debounceSearch.toLowerCase())
-      )
-    : [];
-
+  const filteredData = productList?.filter((item) => {
+    return item?.product_name
+      .toLowerCase()
+      .includes(debouncedSearch?.toLowerCase());
+  });
   return (
     <div className="pb-4 bg-gray-20">
       <PageBreadcrumb pageTitle="food supplies" />
@@ -107,7 +104,9 @@ const Products = () => {
                         readOnly
                         className="accent-[#f86541] hover:cursor-pointer"
                       />
-                      <p className="cursor-pointer capitalize overflow-hidden">{item?.category_name}</p>
+                      <p className="cursor-pointer capitalize overflow-hidden">
+                        {item?.category_name}
+                      </p>
                     </div>
                   );
                 })}
@@ -127,11 +126,11 @@ const Products = () => {
               <div className="mt-12 flex flex-wrap  items-center gap-6">
                 {filteredData?.length > 0 ? (
                   filteredData?.map(
-                    (item: any, index: any) => (
-                      console.log("my data", item),
+                    (item) => (
+                      // console.log("my data", item),
                       (
                         <CommonCard
-                          key={item?._id || index} // Use item ID if available, fallback to index
+                          key={item?._id}
                           imageUrl={item?.product_logo}
                           title={item?.product_name}
                           description={item?.product_description}
@@ -143,7 +142,9 @@ const Products = () => {
                   )
                 ) : (
                   <div className="col-span-4 text-center text-gray">
-                    {searchTerm
+                    {loading
+                      ? ""
+                      : searchTerm
                       ? "No products found matching your search."
                       : "No products available."}
                   </div>
